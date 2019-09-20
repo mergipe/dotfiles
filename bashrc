@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-alias ll='ls -la'
+alias ll='ls -lah'
+alias l='ls -lah --group-directories-first'
 
 export PS1="\[$(tput bold)\]\u@\h:\w\\$ \[$(tput sgr0)\]"
