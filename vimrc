@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-" fugitive.vim
+" fugitive.vim: git wrapper
 Plugin 'tpope/vim-fugitive'
 
 " The NERDTree
@@ -22,8 +22,14 @@ Plugin 'scrooloose/nerdtree'
 " nerdtree-git-plugin
 Plugin 'xuyuanp/nerdtree-git-plugin'
 
-" vim-airline
+" vim-airline: status/tabline
 Plugin 'vim-airline/vim-airline'
+
+" rename.vim
+Plugin 'danro/rename.vim'
+
+" auto-pairs.vim
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
