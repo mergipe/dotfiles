@@ -35,5 +35,3 @@ promptinit
 alias ls='ls --color=auto'
 alias ll='ls -lah'
 alias l='ls -lah --group-directories-first'
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"

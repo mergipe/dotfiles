@@ -1,0 +1,30 @@
+Config { font = "xft:Hack:pixelsize=12:weight=200:antialias=true:hinting=true"
+       , additionalFonts = []
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#1b2026"
+       , fgColor = "grey"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "/home/gustavo/.xmonad/xpm"
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Network "enp5s0" ["-t", "enp5s0: <rx>kB/<tx>kB", "-L","0","-H","32",
+                                          "--normal","green","--high","red"] 10
+                    , Run Cpu ["-t", "cpu: <total>%", "-L","3","-H","50",
+                               "--normal","green","--high","red"] 10
+                    , Run Memory ["-t","mem: <used>M (<usedratio>%)"] 10
+                    , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 10
+                    , Run Date "%A %d/%m/%Y %H:%M:%S" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "  %StdinReader% }{ %enp5s0% | %cpu% | %memory% | %disku% | <fc=#ee9a00>%date%</fc>  "
+       }
