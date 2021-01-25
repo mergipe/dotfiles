@@ -21,8 +21,9 @@ Config { font = "xft:SFMono:pixelsize=12:weight=200:antialias=true:hinting=true"
                     , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 10
                     , Run Date "%A %d/%m/%Y %H:%M:%S" "date" 10
                     , Run StdinReader
+                    , Run Com "/home/gustavo/.local/bin/pacupdate" [] "pacupdate" 36000
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "  <fc=#1793d1><fn=1></fn></fc>  %StdinReader% }{ %dynnetwork% | %cpu% | %memory% | %disku% | %date%  "
+       , template = "  <fc=#1793d1><fn=1></fn></fc>  %StdinReader% }{ %dynnetwork% | %cpu% | %memory% | %disku% | %date% | %pacupdate%  "
        }

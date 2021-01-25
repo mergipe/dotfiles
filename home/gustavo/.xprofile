@@ -1,1 +1,5 @@
+# keyboard delay and repeat rate
 xset r rate 130 50
+
+# reload .Xresources config
+xrdb ~/.Xresources
