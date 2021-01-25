@@ -7,51 +7,57 @@ URxvt*scrollWithBuffer: true
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
 
+! copy and paste
 URxvt.perl-ext-common: clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+
+! urls
 URxvt.urlLauncher: chromium
 URxvt.underlineURLs: true
 
+! appearence
 URxvt.internalBorder: 5
 URxvt.cursorBlink: false
 URxvt.saveline: 2048
 URxvt.scrollBar: false
 URxvt.scrollBar_right: true
-
-URxvt.font: xft:Hack:pixelsize=12:antialias=true:hinting=true
+URxvt.font: xft:SFMono:pixelsize=11:antialias=true:hinting=true,\
+            xft:Hack:pixelsize=11:antialias=true:hinting=true
 
 ! special
-*.foreground:   #b7b8b9
-*.background:   #0c0d0e
-*.cursorColor:  #b7b8b9
+*.foreground:   #ffffff
+*.background:   #171717
+*.cursorColor:  #8b8b8b
 
 ! black
-*.color0:       #0c0d0e
-*.color8:       #737475
+*.color0:       #000000
+*.color8:       #666666
 
 ! red
-*.color1:       #e31a1c
-*.color9:       #e31a1c
+*.color1:       #990000
+*.color9:       #e50000
 
 ! green
-*.color2:       #31a354
-*.color10:      #31a354
+*.color2:       #00a600
+*.color10:      #00d900
 
 ! yellow
-*.color3:       #dca060
-*.color11:      #dca060
+*.color3:       #999900
+*.color11:      #e5e500
 
 ! blue
-*.color4:       #3182bd
-*.color12:      #3182bd
+*.color4:       #0000b2
+*.color12:      #0000ff
 
 ! magenta
-*.color5:       #756bb1
-*.color13:      #756bb1
+*.color5:       #b200b2
+*.color13:      #e500e5
 
 ! cyan
-*.color6:       #80b1d3
-*.color14:      #80b1d3
+*.color6:       #00a6b2
+*.color14:      #00e5e5
 
 ! white
-*.color7:       #b7b8b9
-*.color15:      #fcfdfe
+*.color7:       #bfbfbf
+*.color15:      #e5e5e5
