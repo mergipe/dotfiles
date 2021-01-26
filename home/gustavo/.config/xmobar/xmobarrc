@@ -10,7 +10,6 @@ Config { font = "xft:SFMono:pixelsize=12:weight=200:antialias=true:hinting=true"
        , textOffset = 16
        , textOffsets = [ 21 ]
        , hideOnStart = False
-       , iconRoot = "/home/gustavo/.xmonad/xpm"
        , allDesktops = True
        , overrideRedirect = True
        , commands = [ Run DynNetwork ["-t", "<dev>: <rx>kB/<tx>kB", "-L","0","-H","32",

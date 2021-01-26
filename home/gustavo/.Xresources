@@ -49,8 +49,8 @@ URxvt.font: xft:SFMono:pixelsize=11:antialias=true:hinting=true,\
 *.color11:      #e5e500
 
 ! blue
-*.color4:       #0000b2
-*.color12:      #0000ff
+*.color4:       #003cb2
+*.color12:      #003cff
 
 ! magenta
 *.color5:       #b200b2
