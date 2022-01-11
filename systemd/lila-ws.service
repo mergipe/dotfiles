@@ -1,0 +1,8 @@
+[Unit]
+Description=lila-ws
+
+[Service]
+ExecStart=/home/gustavo/.local/share/coursier/bin/bloop run lila-ws -m lila.ws.Boot -c /home/gustavo/lila-ws/.bloop
+
+[Install]
+WantedBy=multi-user.target

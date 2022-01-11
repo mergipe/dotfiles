@@ -1,0 +1,6 @@
+#!/bin/bash
+
+output=$(/usr/lib/update-notifier/apt-check --human-readable)
+outputArr=($output)
+
+echo "${outputArr[@]:0:2}"

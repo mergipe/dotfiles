@@ -1,0 +1,35 @@
+Config { font = "xft:SFMono:pixelsize=11:weight=150:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:SFMono:pixelsize=25:weight=200:antialias=true:hinting=true" ]
+       , bgColor = "#222222"
+       , fgColor = "#e5e5e5"
+       , alpha = 255
+       , position = Static { xpos = 1366, ypos = 0, width = 1920, height = 23 }
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , textOffset = 16
+       , textOffsets = [ 21 ]
+       , hideOnStart = False
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Wireless "wlo1"
+                                   ["-t", "<essid> <qualityvbar>"]
+                                   60
+                    , Run BatteryP ["BAT1"]
+                                   ["-t", "batt: <left>% <acstatus>",
+                                    "-L", "30", "-H", "80",
+                                    "--", "-O", "<fc=green>↑</fc>", "-o", "<fc=red>↓</fc>",
+                                    "-l", "red", "-h", "green"]
+                                   60
+                    , Run Cpu ["-t", "cpu: <total>%", "-L","3","-H","50",
+                               "--normal","green","--high","red"] 10
+                    , Run Memory ["-t","mem: <used>M (<usedratio>%)"] 10
+                    , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 10
+                    , Run Date "%A %d/%m/%Y %H:%M:%S" "date" 10
+                    , Run StdinReader
+                    , Run Com "/home/gustavo/.local/bin/updates" [] "updates" 9000
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "  %StdinReader% }{ %wlo1wi% | %cpu% | %memory% | %disku% | %battery% | %date% | %updates%  "
+       }

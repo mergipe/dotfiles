@@ -55,7 +55,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["web1","ide","run","db","misc1","misc2","chat","music","web2"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -153,7 +153,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ++
 
     --
@@ -195,7 +195,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = spacingRaw True (Border 0 10 10 0) True (Border 10 0 0 10) True $
+myLayout = spacingRaw True (Border 0 2 2 0) True (Border 2 0 0 2) True $
            smartBorders $
            avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
@@ -249,11 +249,12 @@ myEventHook = fullscreenEventHook
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook :: Handle -> X ()
-myLogHook xmproc = dynamicLogWithPP xmobarPP
-    { ppOutput = hPutStrLn xmproc
+myLogHook :: Handle -> Handle -> X ()
+myLogHook xmproc0 xmproc1 = dynamicLogWithPP xmobarPP
+    { ppOutput = \x -> hPutStrLn xmproc0 x >> hPutStrLn xmproc1 x
     , ppTitle = xmobarColor "green" "" . shorten 60
-    , ppCurrent = xmobarColor "lightblue" "" . wrap "[" "]"
+    , ppCurrent = xmobarColor "orange" "" . wrap "[" "]"
+    , ppVisible = xmobarColor "orange" "" . wrap "(" ")"
     , ppHidden = xmobarColor "yellow" "" . wrap "" "*"
     , ppSep = " | "
     , ppHiddenNoWindows = xmobarColor "white" ""
@@ -278,7 +279,8 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-    xmproc <- spawnPipe "xmobar -x 0 /home/gustavo/.config/xmobar/xmobarrc"
+    xmproc0 <- spawnPipe "xmobar -x 0 /home/gustavo/.config/xmobar/xmobarrc"
+    xmproc1 <- spawnPipe "xmobar -x 1 /home/gustavo/.config/xmobar/xmobarrc-laptop"
     xmonad $ docks def {
       -- simple stuff
         terminal           = myTerminal,
@@ -298,7 +300,7 @@ main = do
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook xmproc,
+        logHook            = myLogHook xmproc0 xmproc1,
         startupHook        = myStartupHook
     }
 

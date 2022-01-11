@@ -1,0 +1,27 @@
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'itchyny/lightline.vim'
+Plug 'josa42/vim-lightline-coc'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-commentary'
+Plug 'chiel92/vim-autoformat'
+Plug 'danro/rename.vim'
+
+" Initialize plugin system
+call plug#end()
+
+source ~/dotfiles/vim/settings.vim
+source ~/dotfiles/vim/theme.vim
+source ~/dotfiles/vim/coc.vim
+source ~/dotfiles/vim/lightline.vim

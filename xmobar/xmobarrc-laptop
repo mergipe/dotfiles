@@ -1,28 +1,34 @@
-Config { font = "xft:SFMono:pixelsize=12:weight=200:antialias=true:hinting=true"
+Config { font = "xft:SFMono:pixelsize=10:weight=150:antialias=true:hinting=true"
        , additionalFonts = [ "xft:SFMono:pixelsize=25:weight=200:antialias=true:hinting=true" ]
        , bgColor = "#222222"
        , fgColor = "#e5e5e5"
        , alpha = 255
-       , position = Static { xpos = 0, ypos = 0, width = 1920, height = 23 }
+       , position = Static { xpos = 0, ypos = 0, width = 1366, height = 21 }
        , lowerOnStart = True
        , pickBroadest = False
        , persistent = False
-       , textOffset = 16
+       , textOffset = 14
        , textOffsets = [ 21 ]
        , hideOnStart = False
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run DynNetwork ["-t", "<dev>: <rx>kB/<tx>kB", "-L","0","-H","32",
-                                          "--normal","green","--high","red"] 10
+       , commands = [ Run Wireless "wlo1"
+                                   ["-t", "<essid> <qualityvbar>"]
+                                   60
+                    , Run BatteryP ["BAT1"]
+                                   ["-t", "batt: <left>% <acstatus>",
+                                    "-L", "30", "-H", "80",
+                                    "--", "-O", "<fc=green>↑</fc>", "-o", "<fc=red>↓</fc>",
+                                    "-l", "red", "-h", "green"]
+                                   60
                     , Run Cpu ["-t", "cpu: <total>%", "-L","3","-H","50",
                                "--normal","green","--high","red"] 10
                     , Run Memory ["-t","mem: <used>M (<usedratio>%)"] 10
                     , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 10
                     , Run Date "%A %d/%m/%Y %H:%M:%S" "date" 10
                     , Run StdinReader
-                    , Run Com "/home/gustavo/.local/bin/updates" [] "updates" 36000
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "  <fc=#1793d1><fn=1></fn></fc>  %StdinReader% }{ %dynnetwork% | %cpu% | %memory% | %disku% | %date% | %updates%  "
+       , template = "  %StdinReader% }{ %wlo1wi% | %cpu% | %memory% | %battery% | %date%  "
        }

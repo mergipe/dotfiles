@@ -1,4 +1,0 @@
-#!/bin/bash
-
-updatesCount=$(checkupdates | wc -l)
-echo "$updatesCount updates"

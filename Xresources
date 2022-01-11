@@ -21,7 +21,7 @@ URxvt.underlineURLs: true
 ! appearence
 URxvt.internalBorder: 5
 URxvt.cursorBlink: false
-URxvt.saveline: 2048
+URxvt.saveLines: 50000
 URxvt.scrollBar: false
 URxvt.scrollBar_right: true
 URxvt.font: xft:SFMono:pixelsize=11:antialias=true:hinting=true,\
