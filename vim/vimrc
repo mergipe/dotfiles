@@ -10,6 +10,7 @@ call plug#begin()
 " Make sure you use single quotes
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 Plug 'itchyny/lightline.vim'
 Plug 'josa42/vim-lightline-coc'
 Plug 'tpope/vim-fugitive'
