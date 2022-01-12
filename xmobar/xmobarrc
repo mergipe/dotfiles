@@ -14,21 +14,22 @@ Config { font = "xft:SFMono:pixelsize=11:weight=150:antialias=true:hinting=true"
        , overrideRedirect = True
        , commands = [ Run Wireless "wlo1"
                                    ["-t", "<essid> <qualityvbar>"]
-                                   60
+                                   50
                     , Run BatteryP ["BAT1"]
                                    ["-t", "batt: <left>% <acstatus>",
                                     "-L", "30", "-H", "80", "-l", "red", "-h", "green",
-                                    "--", "-O", "<fc=green>↑</fc>", "-o", "<fc=red>↓</fc>"]
-                                   60
+                                    "--", "-O", "<fc=green>↑</fc> ", "-o", ""]
+                                   50
                     , Run Cpu ["-t", "cpu: <total>%", "-L","3","-H","50",
-                               "--normal","green","--high","red"] 10
-                    , Run Memory ["-t","mem: <used>M (<usedratio>%)"] 10
-                    , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 10
+                               "--high","red"] 10
+                    , Run Memory ["-t","mem: <used>M (<usedratio>%)",
+                                  "-H", "14400", "-h", "red"] 10
+                    , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 600
                     , Run Date "%A %d/%m/%Y %H:%M:%S" "date" 10
                     , Run StdinReader
-                    , Run Com "/home/gustavo/.local/bin/updates" [] "updates" 9000
+                    , Run Com "/home/gustavo/.local/bin/updates" [] "updates" 6000
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "  %StdinReader% }{ %wlo1wi% | %cpu% | %memory% | %disku% | %battery% | %date% | %updates%  "
+       , template = "  %StdinReader% }{ %wlo1wi% | %cpu% | %memory% | %disku% | %battery%| %date% | %updates%  "
        }
