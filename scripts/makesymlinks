@@ -56,8 +56,9 @@ mkdir -p ~/.bloop
 link bloop.json ~/.bloop/bloop.json
 
 mkdir -p ~/.config/systemd/user
-for s in bloop lila lila-ws; do
-    link systemd/$s.service ~/.config/systemd/user/$s.service
+for filepath in $BASE_DIR/systemd/*.service; do
+    filename=$(basename $filepath)
+    link systemd/$filename ~/.config/systemd/user/$filename
 done
 
 systemctl --user daemon-reload

@@ -19,3 +19,4 @@ set nowritebackup          " and again
 set noswapfile             " use an SCM instead of swap files
 
 set so=0                   " scroll cursor offset
+set hlsearch               " highlight all search pattern matches
