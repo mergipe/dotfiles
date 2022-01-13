@@ -33,6 +33,7 @@ link scripts/updates ~/.local/bin/updates
 link gitconfig ~/.gitconfig
 link Xresources ~/.Xresources
 link xsessionrc ~/.xsessionrc
+link xbindkeysrc ~/.xbindkeysrc
 
 link vim ~/.vim
 # Installs vim-plug
