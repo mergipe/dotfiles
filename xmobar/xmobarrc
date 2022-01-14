@@ -17,7 +17,7 @@ Config { font = "xft:SFMono:pixelsize=11:weight=150:antialias=true:hinting=true"
                                    50
                     , Run BatteryP ["BAT1"]
                                    ["-t", "batt: <left>% <acstatus>",
-                                    "-L", "30", "-l", "red",
+                                    "-L", "30", "-l", "red", "-H", "95", "-h", "green",
                                     "--", "-O", "<fc=green>↑</fc> ", "-o", "", "-i", "↑ "]
                                    50
                     , Run Cpu ["-t", "cpu: <total>%", "-L","3","-H","50",
