@@ -11,3 +11,4 @@ prompt = false
 [core]
 editor = vim
 excludesFile = /home/gustavo/dotfiles/gitignore
+autocrlf = input
