@@ -12,6 +12,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Util.Run
@@ -197,7 +198,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 --
 myLayout = spacingRaw True (Border 0 2 2 0) True (Border 2 0 0 2) True $
            smartBorders $
-           avoidStruts (tiled ||| Mirror tiled ||| Full)
+           avoidStruts (Grid ||| tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio

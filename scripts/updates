@@ -3,4 +3,4 @@
 output=$(/usr/lib/update-notifier/apt-check --human-readable)
 outputArr=($output)
 
-echo "${outputArr[@]:0:2}"
+echo "${outputArr[@]:8:2}"

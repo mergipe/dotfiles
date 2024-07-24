@@ -12,3 +12,5 @@ prompt = false
 editor = vim
 excludesFile = /home/gustavo/dotfiles/gitignore
 autocrlf = input
+[credential]
+	helper = cache

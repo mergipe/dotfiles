@@ -12,7 +12,8 @@ Config { font = "xft:SFMono:pixelsize=11:weight=150:antialias=true:hinting=true"
        , hideOnStart = False
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Wireless "wlo1"
+       , commands = [ Run DynNetwork [] 50
+                    , Run Wireless "wlo1"
                                    ["-t", "<essid> <qualityvbar>"]
                                    50
                     , Run BatteryP ["BAT1"]
@@ -31,5 +32,5 @@ Config { font = "xft:SFMono:pixelsize=11:weight=150:antialias=true:hinting=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "  %StdinReader% }{ %wlo1wi% | %cpu% | %memory% | %disku% | %battery%| %date% | %updates%  "
+       , template = "  %StdinReader% }{ %dynnetwork% | %wlo1wi% | %cpu% | %memory% | %disku% | %battery%| %date% | %updates%  "
        }

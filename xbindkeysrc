@@ -72,10 +72,10 @@
 "playerctl --player=spotify next"
     XF86AudioNext
 
-"~/snap/spotify/current/increase_volume.sh"
+"python3 ~/snap/spotify/current/increase_volume.py"
     XF86AudioRaiseVolume
 
-"~/snap/spotify/current/decrease_volume.sh"
+"python3 ~/snap/spotify/current/decrease_volume.py"
     XF86AudioLowerVolume
 
 ##################################
