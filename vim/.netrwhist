@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/gustavo/dotfiles/xmonad'
+let g:netrw_dirhist_8='/usr/share/X11/xkb/symbols'
 let g:netrw_dirhist_7='/home/gustavo/Downloads/ec_ext/ENS_Est_rv_20240628/Arq_Saida/ECMWF/Prev_Rem'
 let g:netrw_dirhist_6='/home/gustavo/Downloads/ec_ext/ec_ext_ons_20240628/Arq_Saida/ECMWF/Prev_Rem'
 let g:netrw_dirhist_5='/home/gustavo/Downloads/smap_decks/weekly/pmo_julho_oficial/Modelos_Chuva_Vazao/SMAP_EXT/OSE/ARQ_SAIDA'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_3='/home/gustavo/Downloads/smap_decks/weekly/pmo_julho_ofici
 let g:netrw_dirhist_2='/home/gustavo/Downloads/smap_decks/daily/20240701_oficial/Modelos_Chuva_Vazao/SMAP/OSE/ARQ_SAIDA'
 let g:netrw_dirhist_1='/home/gustavo/Downloads/smap_decks/daily/20240701_bucket/Modelos_Chuva_Vazao/SMAP/OSE/ARQ_SAIDA'
 let g:netrw_dirhist_0='/home/gustavo/Downloads/smap_decks/daily/20240701_oficial/Modelos_Chuva_Vazao/SMAP/OSE/ARQ_SAIDA'
-let g:netrw_dirhist_9='/home/gustavo/Downloads/smap_decks/daily/20240701_bucket/Modelos_Chuva_Vazao/SMAP/OSE/ARQ_SAIDA'
-let g:netrw_dirhist_8='/home/gustavo/Downloads/smap_decks/daily/20240701_oficial/Modelos_Chuva_Vazao/SMAP/OSE/ARQ_ENTRADA'

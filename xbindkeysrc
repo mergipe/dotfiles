@@ -4,8 +4,7 @@
 ###########################
 #
 # Version: 1.8.6
-#
-# If you edit this file, do not forget to uncomment any lines
+# # If you edit this file, do not forget to uncomment any lines
 # that you change.
 # The pound(#) symbol may be used anywhere for comments.
 #
@@ -72,10 +71,10 @@
 "playerctl --player=spotify next"
     XF86AudioNext
 
-"python3 ~/snap/spotify/current/increase_volume.py"
+"python3 ~/.scripts/increase_volume.py"
     XF86AudioRaiseVolume
 
-"python3 ~/snap/spotify/current/decrease_volume.py"
+"python3 ~/.scripts/decrease_volume.py"
     XF86AudioLowerVolume
 
 ##################################

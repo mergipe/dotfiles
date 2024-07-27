@@ -72,7 +72,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run -fn 'SFMono-10'")
+    , ((modm,               xK_p     ), spawn "dmenu_run -fn 'SFMono Nerd Font Mono-9'")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -253,7 +253,7 @@ myEventHook = fullscreenEventHook
 myLogHook :: Handle -> Handle -> X ()
 myLogHook xmproc0 xmproc1 = dynamicLogWithPP xmobarPP
     { ppOutput = \x -> hPutStrLn xmproc0 x >> hPutStrLn xmproc1 x
-    , ppTitle = xmobarColor "green" "" . shorten 60
+    , ppTitle = xmobarColor "green" "" . shorten 30
     , ppCurrent = xmobarColor "orange" "" . wrap "[" "]"
     , ppVisible = xmobarColor "orange" "" . wrap "(" ")"
     , ppHidden = xmobarColor "yellow" "" . wrap "" "*"

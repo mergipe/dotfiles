@@ -1,5 +1,4 @@
-ZSH=/home/gustavo/.oh-my-zsh
-
+ZSH=/usr/share/oh-my-zsh
 ZSH_THEME="robbyrussell-mod"
 
 plugins=(
@@ -38,34 +37,3 @@ alias ll='ls -lah'
 alias l='ls -lah --group-directories-first'
 
 export PATH=$PATH:/home/gustavo/.local/bin
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/gustavo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/gustavo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/gustavo/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/gustavo/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-[ -s "/home/gustavo/.jabba/jabba.sh" ] && source "/home/gustavo/.jabba/jabba.sh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="$PATH:/home/gustavo/.local/share/coursier/bin"
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

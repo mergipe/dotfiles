@@ -1,6 +1,3 @@
 #!/bin/bash
-
-output=$(/usr/lib/update-notifier/apt-check --human-readable)
-outputArr=($output)
-
-echo "${outputArr[@]:8:2}"
+output=$(/usr/bin/checkupdates | wc -l)
+echo "${output} updates"

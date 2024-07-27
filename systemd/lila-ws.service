@@ -1,8 +1,0 @@
-[Unit]
-Description=lila-ws
-
-[Service]
-ExecStart=/home/gustavo/.local/share/coursier/bin/bloop run lila-ws -m lila.ws.Boot -c /home/gustavo/workspaces/lichess/lila-ws/.bloop
-
-[Install]
-WantedBy=multi-user.target

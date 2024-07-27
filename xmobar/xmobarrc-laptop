@@ -1,5 +1,4 @@
-Config { font = "xft:SFMono:pixelsize=10:weight=150:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:SFMono:pixelsize=25:weight=200:antialias=true:hinting=true" ]
+Config { font = "xft:SFMono Nerd Font Mono 8"
        , bgColor = "#222222"
        , fgColor = "#e5e5e5"
        , alpha = 255
@@ -7,8 +6,6 @@ Config { font = "xft:SFMono:pixelsize=10:weight=150:antialias=true:hinting=true"
        , lowerOnStart = True
        , pickBroadest = False
        , persistent = False
-       , textOffset = 14
-       , textOffsets = [ 21 ]
        , hideOnStart = False
        , allDesktops = True
        , overrideRedirect = True

@@ -1,5 +1,4 @@
-Config { font = "xft:SFMono:pixelsize=11:weight=150:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:SFMono:pixelsize=25:weight=200:antialias=true:hinting=true" ]
+Config { font = "xft:SFMono Nerd Font Mono 8"
        , bgColor = "#222222"
        , fgColor = "#e5e5e5"
        , alpha = 255
@@ -7,8 +6,6 @@ Config { font = "xft:SFMono:pixelsize=11:weight=150:antialias=true:hinting=true"
        , lowerOnStart = True
        , pickBroadest = False
        , persistent = False
-       , textOffset = 16
-       , textOffsets = [ 21 ]
        , hideOnStart = False
        , allDesktops = True
        , overrideRedirect = True
@@ -25,7 +22,7 @@ Config { font = "xft:SFMono:pixelsize=11:weight=150:antialias=true:hinting=true"
                                "--high","red"] 10
                     , Run Memory ["-t","mem: <used>M (<usedratio>%)",
                                   "-H", "14400", "-h", "red"] 10
-                    , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 600
+                    , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 10
                     , Run Date "%A %d/%m/%Y %H:%M:%S" "date" 10
                     , Run StdinReader
                     , Run Com "/home/gustavo/.local/bin/updates" [] "updates" 6000
