@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# set xrandr layout
+autorandr --change
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -31,20 +34,16 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# disable laptop touch screen
-#xinput disable 'ELAN Touchscreen'
+# set wallpaper
+nitrogen --restore &
 
-# keyboard delay and repeat rate
-#xset r rate 130 50
+# start picom as a background process
+picom -b
 
 # enable key bindings set in ~/.xbindkeysrc
 xbindkeys --poll-rc
 
-# notification daemon
-#lxqt-notificationd &!
-
 xsetroot -cursor_name left_ptr
 
-export _JAVA_AWT_WM_NONREPARENTING=1
-
+# start xmonad
 xmonad

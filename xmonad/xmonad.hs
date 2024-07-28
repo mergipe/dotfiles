@@ -242,7 +242,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = fullscreenEventHook
+myEventHook _ = return (All True)
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -270,9 +270,7 @@ myLogHook xmproc0 xmproc1 = dynamicLogWithPP xmobarPP
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = do
-    spawnOnce "nitrogen --restore &"
-    spawnOnce "picom &"
+myStartupHook = return ()
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -282,7 +280,7 @@ myStartupHook = do
 main = do
     xmproc0 <- spawnPipe "xmobar -x 0 /home/gustavo/.config/xmobar/xmobarrc"
     xmproc1 <- spawnPipe "xmobar -x 1 /home/gustavo/.config/xmobar/xmobarrc-laptop"
-    xmonad $ docks def {
+    xmonad $ docks $ ewmhFullscreen $ def {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
