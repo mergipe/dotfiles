@@ -10,12 +10,11 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 ! copy and paste
-URxvt.perl-ext-common: clipboard
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.Meta-C: eval:selection_to_clipboard
+URxvt.keysym.Meta-V: eval:paste_clipboard
 
 ! urls
-URxvt.urlLauncher: chromium
+URxvt.urlLauncher: /usr/bin/google-chrome-stable
 URxvt.underlineURLs: true
 
 ! appearence
