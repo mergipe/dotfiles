@@ -1,3 +1,18 @@
 #!/bin/bash
-output=$(/usr/bin/checkupdates | wc -l)
-echo "${output} updates"
+
+get_updates_string() {
+    if [ "$1" -eq 1 ]; then
+        updates_str="update"
+    else
+        updates_str="updates"
+    fi
+    echo "$updates_str"
+}
+
+new_updates_count=$(/usr/bin/checkupdates -c | wc -l)
+all_updates_count=$(/usr/bin/checkupdates | wc -l)
+updates_string=$(get_updates_string "$all_updates_count")
+if [ "$new_updates_count" gt 0 ]; then
+    notify-send "pacman" "$all_updates_count pending $updates_string" --icon=software-update-available
+fi
+echo "$all_updates_count $updates_string"

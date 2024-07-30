@@ -16,6 +16,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
+import XMonad.ManageHook
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import Data.Monoid
@@ -229,7 +230,7 @@ myLayout = spacingRaw True (Border 0 2 2 0) True (Border 2 0 0 2) True $
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ insertPosition Below Newer ]
+    [ fmap not willFloat --> insertPosition End Newer ]
 
 ------------------------------------------------------------------------
 -- Event handling
