@@ -34,15 +34,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# set wallpaper
-nitrogen --restore &
-
-# start picom as a background process
-picom -b
-
 # enable key bindings set in ~/.xbindkeysrc
 xbindkeys --poll-rc
 
+# change X shaped default cursor
 xsetroot -cursor_name left_ptr
 
 # start xmonad

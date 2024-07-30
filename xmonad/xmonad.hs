@@ -270,7 +270,10 @@ myLogHook xmproc0 xmproc1 = dynamicLogWithPP xmobarPP
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = do
+    spawnOnce "dunst &"
+    spawnOnce "nitrogen --restore &"
+    spawnOnce "picom -b"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
