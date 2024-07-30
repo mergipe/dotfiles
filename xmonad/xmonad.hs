@@ -11,6 +11,7 @@ import GHC.IO.Handle
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
@@ -228,10 +229,7 @@ myLayout = spacingRaw True (Border 0 2 2 0) True (Border 2 0 0 2) True $
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    [ insertPosition Below Newer ]
 
 ------------------------------------------------------------------------
 -- Event handling
