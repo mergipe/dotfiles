@@ -143,10 +143,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
 
     -- Snapshot of the entire screen
-    , ((modm              , xK_Print ), spawn "scrot ~/screenshots/%Y-%m-%d-%H%M%S.png")
+    , ((modm              , xK_Print ), spawn "~/.scripts/screenshot")
 
     -- Snapshot of selected area
-    , ((modm .|. shiftMask, xK_Print ), spawn "sleep 0.2; scrot -s ~/screenshots/%Y-%m-%d-%H%M%S.png")
+    , ((modm .|. shiftMask, xK_Print ), spawn "~/.scripts/screenshot-area")
     ]
     ++
 

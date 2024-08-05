@@ -1,0 +1,2 @@
+#!/bin/bash
+shotgun $(slop -f "-i %i -g %g") ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png
