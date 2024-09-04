@@ -230,7 +230,7 @@ myLayout = --spacingRaw True (Border 0 2 2 0) True (Border 2 0 0 2) True $
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ fmap not willFloat --> insertPosition End Newer ]
+    [ fmap not willFloat --> insertPosition Below Newer ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -252,7 +252,7 @@ myEventHook _ = return (All True)
 myLogHook :: Handle -> Handle -> X ()
 myLogHook xmproc0 xmproc1 = dynamicLogWithPP xmobarPP
     { ppOutput = \x -> hPutStrLn xmproc0 x >> hPutStrLn xmproc1 x
-    , ppTitle = xmobarColor "green" "" . shorten 30
+    , ppTitle = xmobarColor "green" "" . shorten 40
     , ppCurrent = xmobarColor "orange" "" . wrap "[" "]"
     , ppVisible = xmobarColor "orange" "" . wrap "(" ")"
     , ppHidden = xmobarColor "yellow" "" . wrap "" "*"
