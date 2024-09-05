@@ -20,7 +20,7 @@ vim.opt.showmode = false -- don't show the mode, since it's already in the statu
 vim.opt.signcolumn = 'yes' -- keep signcolumn on by default
 vim.opt.cursorline = true -- highlight the screen line of the cursor
 vim.opt.ruler = true -- show cursor line and column in the status line
-vim.opt.colorcolumn = '120' -- columns to highlight
+vim.opt.colorcolumn = '110' -- columns to highlight
 
 -- editing options
 vim.opt.undofile = true -- save undo information in a file

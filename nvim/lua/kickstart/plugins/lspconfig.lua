@@ -224,7 +224,20 @@ return {
           end,
         },
       }
-      require('lspconfig').clangd.setup {}
+      require('lspconfig').clangd.setup {
+        cmd = {
+          'clangd',
+          '--all-scopes-completion',
+          '--clang-tidy',
+          '--completion-style=detailed',
+          '--fallback-style=LLVM',
+          '--function-arg-placeholders',
+          '--header-insertion=iwyu',
+          '--header-insertion-decorators',
+          '-j=6',
+          '--pch-storage=memory',
+        },
+      }
     end,
   },
 }
