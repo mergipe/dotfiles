@@ -25,7 +25,7 @@ vim.opt.colorcolumn = '110' -- columns to highlight
 -- editing options
 vim.opt.undofile = true -- save undo information in a file
 vim.opt.inccommand = 'split' -- preview substitutions live, as you type!
-vim.opt.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 0 -- minimal number of screen lines to keep above and below the cursor.
 vim.opt.timeoutlen = 300 -- decrease mapped sequence wait time; displays which-key popup sooner
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
