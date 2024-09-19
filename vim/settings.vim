@@ -22,5 +22,3 @@ set so=0                   " scroll cursor offset
 set hlsearch               " highlight all search pattern matches
 set incsearch              " incremental search
 set shortmess-=S
-
-let g:clang_format#auto_format=1
