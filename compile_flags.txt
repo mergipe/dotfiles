@@ -1,0 +1,10 @@
+-Wall
+-Wextra
+-Werror
+-Wconversion
+-Wsign-conversion
+-Weffc++
+-pedantic-errors
+-std=c++23
+-xc++
+-I/usr/include/SDL2
