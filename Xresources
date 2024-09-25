@@ -23,8 +23,9 @@ URxvt.cursorBlink: false
 URxvt.saveLines: 50000
 URxvt.scrollBar: false
 URxvt.scrollBar_right: true
-URxvt.font: xft:SFMono Nerd Font Mono:size=9:antialias=true:hinting=true,\
-            xft:DejaVuSansM Nerd Font Mono:size=9:antialias=true:hinting=true
+URxvt.font: xft:SFMonoNerdFontMono:size=9:antialias=true:hinting=true,\
+            xft:SymbolsNerdFontMono:size=9:antialias=true:hinting=true,\
+            xft:DejaVuSansMNerdFontMono:size=9:antialias=true:hinting=true
 
 ! special
 *.foreground:   #d0d0d0

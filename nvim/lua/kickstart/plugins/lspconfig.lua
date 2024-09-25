@@ -210,6 +210,9 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'cmake-language-server',
+        'pyright',
+        'kotlin_language_server',
+        'black',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -239,6 +242,10 @@ return {
           '--pch-storage=memory',
         },
       }
+      require('lspconfig').cmake.setup {}
+      require('lspconfig').pyright.setup {}
+      require('lspconfig').kotlin_language_server.setup {}
+      require('lspconfig').hls.setup {}
     end,
   },
 }
