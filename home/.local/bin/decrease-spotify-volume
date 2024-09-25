@@ -1,0 +1,2 @@
+#!/bin/bash
+python ~/scripts/decrease_spotify_volume.py

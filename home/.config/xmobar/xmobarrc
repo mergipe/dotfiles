@@ -25,7 +25,7 @@ Config { font = "xft:SFMono Nerd Font Mono 8"
                     , Run DiskU [("/", "ssd: <used>/<size> (<usedp>%)"), ("/mnt/HD", "| hdd: <used>/<size> (<usedp>%)")] [] 10
                     , Run Date "%a %d/%m/%y %H:%M:%S" "date" 10
                     , Run StdinReader
-                    , Run Com "/home/gustavo/.local/bin/updates" [] "updates" 6000
+                    , Run Com "/home/gustavo/.local/bin/showupdates" [] "updates" 6000
                     ]
        , sepChar = "%"
        , alignSep = "}{"

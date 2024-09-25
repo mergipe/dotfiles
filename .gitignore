@@ -1,0 +1,2 @@
+home/.xmonad/*
+!home/.xmonad/xmonad.hs

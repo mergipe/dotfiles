@@ -1,3 +1,0 @@
-source ~/dotfiles/vim/settings.vim
-source ~/dotfiles/vim/theme.vim
-source ~/dotfiles/vim/lightline.vim

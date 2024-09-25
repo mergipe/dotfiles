@@ -1,0 +1,9 @@
+apple-fonts
+batsignal
+eccodes
+google-cloud-cli
+intellij-idea-ultimate-edition
+nerd-fonts-sf-mono
+oh-my-zsh-git
+paru
+rxvt-unicode-truecolor-wide-glyphs

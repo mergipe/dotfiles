@@ -1,0 +1,3 @@
+runtime settings.vim
+runtime theme.vim
+runtime lightline.vim

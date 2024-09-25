@@ -71,10 +71,10 @@
 "playerctl --player=spotify next"
     XF86AudioNext
 
-"python3 ~/.scripts/increase_volume.py"
+"increase-spotify-volume"
     XF86AudioRaiseVolume
 
-"python3 ~/.scripts/decrease_volume.py"
+"decrease-spotify-volume"
     XF86AudioLowerVolume
 
 ##################################
