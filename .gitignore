@@ -1,3 +1,4 @@
 home/.xmonad/*
 !home/.xmonad/xmonad.hs
 home/.config/systemd/user/default.target.wants
+home/.vim/.netrwhist
