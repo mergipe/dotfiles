@@ -44,3 +44,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 alias vifm="~/.config/vifm/vifmimg/vifmrun ."
 export VISUAL=nvim
 export EDITOR=nvim
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
