@@ -34,6 +34,7 @@ networkmanager
 nitrogen
 noto-fonts-emoji
 npm
+ntfs-3g
 nvidia-open
 nvidia-settings
 oh-my-zsh-git
