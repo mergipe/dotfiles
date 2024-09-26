@@ -1,5 +1,4 @@
 amd-ucode
-apple-fonts
 archlinux-wallpaper
 base
 base-devel
@@ -29,7 +28,6 @@ man-db
 man-pages
 mupdf
 neovim
-nerd-fonts-sf-mono
 networkmanager
 nitrogen
 noto-fonts-emoji
@@ -37,11 +35,8 @@ npm
 ntfs-3g
 nvidia-open
 nvidia-settings
-oh-my-zsh-git
 openssh
 pacman-contrib
-paru
-paru-debug
 pavucontrol
 picom
 playerctl
@@ -50,9 +45,6 @@ pulseaudio-alsa
 qbittorrent
 redshift
 ripgrep
-rtl8821au-dkms-git
-rxvt-unicode-truecolor-wide-glyphs
-rxvt-unicode-truecolor-wide-glyphs-debug
 sdl2_image
 sdl2_mixer
 sdl2_ttf
@@ -60,8 +52,6 @@ shotgun
 slock
 slop
 spotify-launcher
-stremio
-stremio-debug
 task
 tiled
 tree
