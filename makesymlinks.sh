@@ -35,6 +35,7 @@ link home/.config/picom ~/.config
 link home/.config/redshift ~/.config
 link home/.config/systemd/user ~/.config/systemd
 link home/.config/xmobar ~/.config
+link home/.config/sxiv ~/.config
 link home/.local/bin ~/.local
 link home/.ssh/config ~/.ssh
 link home/scripts ~
