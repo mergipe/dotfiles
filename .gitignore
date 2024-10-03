@@ -1,4 +1,5 @@
 home/.xmonad/*
 !home/.xmonad/xmonad.hs
+home/.config/nvim/lazy-lock.json
 home/.config/systemd/user/default.target.wants
 home/.vim/.netrwhist
