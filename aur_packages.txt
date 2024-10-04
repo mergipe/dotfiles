@@ -1,6 +1,7 @@
 apple-fonts
 batsignal
 eccodes
+fontpreview
 google-cloud-cli
 intellij-idea-ultimate-edition
 nerd-fonts-sf-mono
