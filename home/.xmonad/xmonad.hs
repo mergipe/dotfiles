@@ -121,9 +121,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       -- Run xmessage with a summary of the default keybindings (useful for beginners)
       ((modm .|. shiftMask, xK_slash), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
       -- Snapshot of the entire screen
-      ((modm, xK_Print), spawn "~/.scripts/screenshot"),
+      ((modm, xK_Print), spawn "~/.local/bin/screenshot"),
       -- Snapshot of selected area
-      ((modm .|. shiftMask, xK_Print), spawn "~/.scripts/screenshot-area")
+      ((modm .|. shiftMask, xK_Print), spawn "~/.local/bin/screenshot-area")
     ]
       ++
       --
