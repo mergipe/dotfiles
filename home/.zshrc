@@ -49,3 +49,10 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
+alias pacu="sudo pacman -Syu"
+alias paci="sudo pacman -S "
+alias pacr="sudo pacman -Rs "
+alias checkorphans="pacman -Qdt"
+alias removeorphans="pacman -Qdtq | sudo pacman -Rns -"
+alias off="shutdown now"
