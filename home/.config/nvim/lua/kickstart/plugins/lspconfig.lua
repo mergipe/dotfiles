@@ -213,6 +213,7 @@ return {
         'pyright',
         'kotlin_language_server',
         'black',
+        'glsl_analyzer',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -246,6 +247,7 @@ return {
       require('lspconfig').pyright.setup {}
       require('lspconfig').kotlin_language_server.setup {}
       require('lspconfig').hls.setup {}
+      require('lspconfig').glsl_analyzer.setup {}
     end,
   },
 }
