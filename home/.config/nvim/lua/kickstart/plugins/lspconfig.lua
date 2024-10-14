@@ -214,6 +214,7 @@ return {
         'kotlin_language_server',
         'black',
         'glsl_analyzer',
+        'clang-format',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
