@@ -238,7 +238,7 @@ return {
           '--completion-style=detailed',
           '--fallback-style=LLVM',
           '--function-arg-placeholders',
-          '--header-insertion=never',
+          '--header-insertion=iwyu',
           '--header-insertion-decorators',
           '-j=6',
           '--pch-storage=memory',
