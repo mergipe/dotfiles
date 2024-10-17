@@ -24,6 +24,7 @@ firefox
 fzf
 gdb
 git
+godot
 gunicorn
 gvim
 haskell-language-server
@@ -50,6 +51,7 @@ neovim
 networkmanager
 nitrogen
 nodejs
+noto-fonts-cjk
 noto-fonts-emoji
 npm
 nsxiv

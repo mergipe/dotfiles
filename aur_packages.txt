@@ -10,3 +10,4 @@ paru
 rtl8821au-dkms-git
 rxvt-unicode-truecolor-wide-glyphs
 stremio
+unityhub
