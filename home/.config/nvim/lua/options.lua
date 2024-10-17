@@ -17,7 +17,7 @@ vim.opt.mouse = 'a'
 -- view options
 vim.opt.number = true -- print the line number in front of each line
 vim.opt.showmode = false -- don't show the mode, since it's already in the status line
-vim.opt.signcolumn = 'auto:3' -- keep signcolumn on by default
+vim.opt.signcolumn = 'auto:1-3' -- keep signcolumn on by default
 vim.opt.cursorline = true -- highlight the screen line of the cursor
 vim.opt.ruler = true -- show cursor line and column in the status line
 vim.opt.colorcolumn = '110' -- columns to highlight
