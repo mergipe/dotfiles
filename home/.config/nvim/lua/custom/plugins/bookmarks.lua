@@ -1,6 +1,7 @@
 return {
   {
     'crusj/bookmarks.nvim',
+    event = 'VimEnter',
     keys = {
       { '<tab><tab>', mode = { 'n' } },
     },
