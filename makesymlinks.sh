@@ -28,6 +28,7 @@ mkdir -p ~/.config
 mkdir -p ~/.config/systemd
 mkdir -p ~/.local
 link home/.config/autorandr ~/.config
+link home/.config/awesome ~/.config
 link home/.config/dunst ~/.config
 link home/.config/fontconfig ~/.config
 link home/.config/nvim ~/.config
@@ -48,6 +49,7 @@ link home/.xbindkeysrc ~
 link home/.xinitrc ~
 link home/.Xresources ~
 link home/.zshrc ~
+link home/.stylua.toml ~
 
 echo "-- Linking config files from etc"
 link_as_root etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d

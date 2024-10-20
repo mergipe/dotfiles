@@ -9,7 +9,6 @@ sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
-
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources
 fi
@@ -40,7 +39,7 @@ xbindkeys --poll-rc
 # change X shaped default cursor
 xsetroot -cursor_name left_ptr
 
-# start xmonad
-xmonad
+# start window manager
+awesome
 
 udiskie &
