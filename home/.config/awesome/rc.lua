@@ -154,12 +154,11 @@ local lain_net = lain.widget.net {
         end
         local net_status = ''
         local eth = net_now.devices[eth_device]
+        local wlan = net_now.devices[wifi_device]
         if eth and eth.ethernet and eth.carrier == '1' then
             local eth_label = markup.fg.color(label_color, eth_device)
             net_status = net_status .. eth_label .. ' ↓' .. eth.received .. '↑' .. eth.sent
-        end
-        local wlan = net_now.devices[wifi_device]
-        if wlan and wlan.wifi then
+        elseif wlan and wlan.wifi then
             if wlan.carrier == '1' then
                 local wifi_label = markup.fg.color(label_color, wifi_device)
                 net_status = net_status .. wifi_label .. ' ↓' .. wlan.received .. '↑' .. wlan.sent
