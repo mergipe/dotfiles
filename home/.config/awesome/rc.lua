@@ -132,7 +132,7 @@ local lain_fs = lain.widget.fs {
             if hdd_value > 90 then
                 hdd_value = markup.fg.color(alert_color, hdd_value)
             end
-            text = text .. ' ' .. hdd_label .. ' ' .. hdd_value .. '%'
+            text = text .. '  ' .. hdd_label .. ' ' .. hdd_value .. '%'
         end
         widget:set_markup(text)
     end,
