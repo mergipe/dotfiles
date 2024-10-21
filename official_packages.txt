@@ -3,6 +3,7 @@ alsa-utils
 amd-ucode
 archlinux-wallpaper
 autorandr
+awesome
 base
 base-devel
 batsignal

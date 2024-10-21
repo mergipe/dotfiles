@@ -39,7 +39,7 @@ xbindkeys --poll-rc
 # change X shaped default cursor
 xsetroot -cursor_name left_ptr
 
-# start window manager
-awesome
-
 udiskie &
+
+# start window manager
+exec awesome

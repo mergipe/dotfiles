@@ -27,6 +27,7 @@ echo "-- Linking config files from home"
 mkdir -p ~/.config
 mkdir -p ~/.config/systemd
 mkdir -p ~/.local
+link home/.config/alacritty ~/.config
 link home/.config/autorandr ~/.config
 link home/.config/awesome ~/.config
 link home/.config/dunst ~/.config
