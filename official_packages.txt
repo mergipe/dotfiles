@@ -1,4 +1,5 @@
 ack
+alacritty
 alsa-utils
 amd-ucode
 archlinux-wallpaper
@@ -116,12 +117,14 @@ vimiv
 visualvm
 w3m
 wget
+wireless_tools
 xbindkeys
 xclip
 xmobar
 xmonad
 xmonad-contrib
 xorg-server
+xorg-xev
 xorg-xinit
 xorg-xlsfonts
 xorg-xrandr

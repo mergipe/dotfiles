@@ -16,6 +16,7 @@ local hotkeys_popup = require 'awful.hotkeys_popup'
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require 'awful.hotkeys_popup.keys'
+local lain = require 'lain'
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -88,7 +89,41 @@ awful.layout.layouts = {
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock('%a %d/%m/%y %H:%M:%S', 1)
+mytextclock = wibox.widget.textclock(' %a %d/%m/%y %H:%M:%S ', 1)
+local lain_cpu = lain.widget.cpu {
+    settings = function()
+        widget:set_markup(' cpu: ' .. cpu_now.usage .. '% ')
+    end,
+}
+local lain_mem = lain.widget.mem {
+    settings = function()
+        widget:set_markup(' mem: ' .. mem_now.used .. 'M (' .. mem_now.perc .. '%) ')
+    end,
+}
+local lain_fs = lain.widget.fs {
+    settings = function()
+        local root = fs_now['/']
+        local hdd = fs_now['/mnt/HDD']
+        widget:set_markup(' ssd: ' .. root.percentage .. '% | hdd: ' .. hdd.percentage .. '% ')
+    end,
+}
+local lain_net = lain.widget.net {
+    notify = 'off',
+    wifi_state = 'on',
+    eth_state = 'on',
+    settings = function()
+        local eth = net_now.devices.enp5s0
+        -- if eth and eth.ethernet then
+        --     widget:set_markup ' cable '
+        -- end
+        local wlan = net_now.devices.wlp9s0f3u2
+        if wlan and wlan.wifi then
+            awful.spawn.easy_async('iwgetid -r', function(stdout, stderr, reason, exit_code)
+                widget:set_markup(' ' .. stdout .. ' ')
+            end)
+        end
+    end,
+}
 
 -- Create a wibox for each screen and add it
 local function set_wallpaper(s)
@@ -141,9 +176,16 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.textbox ' ',
+            lain_net.widget,
+            wibox.widget.textbox ' |',
+            lain_cpu.widget,
+            wibox.widget.textbox '|',
+            lain_mem.widget,
+            wibox.widget.textbox '|',
+            lain_fs.widget,
+            wibox.widget.textbox '|',
             mytextclock,
-            wibox.widget.textbox ' | ',
+            wibox.widget.textbox '| ',
             awful.widget.watch('showupdates', 600),
             wibox.widget.textbox ' ',
             s.mylayoutbox,
