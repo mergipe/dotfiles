@@ -27,6 +27,7 @@ fzf
 gdb
 git
 godot
+graphviz
 gunicorn
 gvim
 haskell-language-server
@@ -35,6 +36,7 @@ intel-ucode
 iw
 jdk11-openjdk
 jdk17-openjdk
+jupyter-notebook
 kotlin
 less
 libreoffice-still
