@@ -185,6 +185,9 @@ local lain_bat = lain.widget.bat {
 }
 local updates_widget = awful.widget.watch('showupdates', 600)
 local wifi_ssid_widget = awful.widget.watch('iwgetid -r', 5)
+local separators = lain.util.separators
+local arrl_dl = separators.arrow_left(beautiful.bg_normal, beautiful.bg_focus)
+local arrl_ld = separators.arrow_left(beautiful.bg_focus, beautiful.bg_normal)
 
 -- Create a wibox for each screen and add it
 local function set_wallpaper(s)
@@ -249,9 +252,15 @@ awful.screen.connect_for_each_screen(function(s)
             lain_fs.widget,
             wibox.widget.textbox '  ',
             lain_bat.widget,
-            wibox.widget.textbox(markup.fg.color(sep_color, ' | ')),
+            wibox.widget.textbox ' ',
+            arrl_dl,
+            arrl_ld,
+            wibox.widget.textbox ' ',
             mytextclock,
-            wibox.widget.textbox(markup.fg.color(sep_color, ' | ')),
+            wibox.widget.textbox ' ',
+            arrl_dl,
+            arrl_ld,
+            wibox.widget.textbox ' ',
             updates_widget,
             wibox.widget.textbox ' ',
             s.mylayoutbox,
@@ -553,5 +562,5 @@ client.connect_signal('unfocus', function(c)
 end)
 -- }}}
 
--- awful.spawn.with_shell 'picom -b'
+awful.spawn.with_shell 'picom -b'
 beautiful.tasklist_disable_icon = true
