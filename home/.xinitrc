@@ -42,4 +42,4 @@ xsetroot -cursor_name left_ptr
 udiskie &
 
 # start window manager
-exec awesome
+exec /usr/bin/awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr

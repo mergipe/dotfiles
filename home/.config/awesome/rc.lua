@@ -19,6 +19,10 @@ require 'awful.hotkeys_popup.keys'
 local lain = require 'lain'
 local markup = lain.util.markup
 
+naughty.config.padding = beautiful.xresources.apply_dpi(10)
+naughty.config.spacing = beautiful.xresources.apply_dpi(10)
+naughty.config.defaults.timeout = 30
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -55,17 +59,15 @@ end
 beautiful.init '/home/gustavo/.config/awesome/theme.lua'
 
 -- This is used later as the default terminal and editor to run.
-terminal = 'alacritty'
-browser = 'firefox'
-editor = os.getenv 'EDITOR' or 'nvim'
-editor_cmd = terminal .. ' -e ' .. editor
+local terminal = 'alacritty'
+local browser = 'firefox'
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = 'Mod4'
+local modkey = 'Mod4'
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -89,12 +91,13 @@ awful.layout.layouts = {
 -- }}}
 
 -- {{{ Wibar
--- Create a textclock widget
+-- Create widgets
 --
+local widgets_margin = beautiful.xresources.apply_dpi(7)
 local label_color = '#9e9e9e'
 local sep_color = '#6e6e6e'
 local alert_color = '#ff2626'
-mytextclock = wibox.widget.textclock('%a %d/%m/%y %H:%M:%S', 1)
+local mytextclock = wibox.widget.textclock('%a %d/%m/%y %H:%M:%S', 1)
 local lain_cpu = lain.widget.cpu {
     settings = function()
         local label = markup.fg.color(label_color, 'cpu')
@@ -229,41 +232,31 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create the wibox
     s.mywibox = awful.wibar { position = 'top', screen = s }
+    local icon = wibox.widget {
+        image = beautiful.arch_icon,
+        widget = wibox.widget.imagebox,
+    }
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            s.mytaglist,
+            wibox.container.margin(icon, widgets_margin * 2, widgets_margin, 4, 4),
+            wibox.container.margin(s.mytaglist, widgets_margin, widgets_margin),
         },
-        s.mytasklist, -- Middle widget
+        wibox.container.margin(s.mytasklist, widgets_margin, widgets_margin), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.textbox ' ',
-            wifi_ssid_widget,
-            wibox.widget.textbox '  ',
-            lain_net.widget,
-            wibox.widget.textbox '  ',
-            lain_cpu.widget,
-            wibox.widget.textbox '  ',
-            lain_mem.widget,
-            wibox.widget.textbox '  ',
-            lain_fs.widget,
-            wibox.widget.textbox '  ',
-            lain_bat.widget,
-            wibox.widget.textbox ' ',
-            arrl_dl,
-            arrl_ld,
-            wibox.widget.textbox ' ',
-            mytextclock,
-            wibox.widget.textbox ' ',
-            arrl_dl,
-            arrl_ld,
-            wibox.widget.textbox ' ',
-            updates_widget,
-            wibox.widget.textbox ' ',
-            s.mylayoutbox,
+            wibox.container.margin(wifi_ssid_widget, widgets_margin, widgets_margin),
+            wibox.container.margin(lain_net.widget, widgets_margin, widgets_margin),
+            wibox.container.margin(lain_cpu.widget, widgets_margin, widgets_margin),
+            wibox.container.margin(lain_mem.widget, widgets_margin, widgets_margin),
+            wibox.container.margin(lain_fs.widget, widgets_margin, widgets_margin),
+            wibox.container.margin(lain_bat.widget, widgets_margin, widgets_margin),
+            wibox.container.margin(mytextclock, widgets_margin, widgets_margin),
+            wibox.container.margin(updates_widget, widgets_margin, widgets_margin),
+            wibox.container.margin(s.mylayoutbox, widgets_margin, widgets_margin * 2, 4, 4),
         },
     }
 end)
@@ -290,16 +283,16 @@ globalkeys = gears.table.join(
     awful.key({ modkey, 'Shift' }, 'k', function()
         awful.client.swap.byidx(-1)
     end, { description = 'swap with previous client by index', group = 'client' }),
-    awful.key({ modkey }, 'e', function()
-        if awful.screen.focused({}).index < screen:count() then
-            awful.screen.focus_relative(1)
-        end
-    end, { description = 'focus the next screen', group = 'screen' }),
     awful.key({ modkey }, 'w', function()
         if awful.screen.focused({}).index > 1 then
             awful.screen.focus_relative(-1)
         end
     end, { description = 'focus the previous screen', group = 'screen' }),
+    awful.key({ modkey }, 'e', function()
+        if awful.screen.focused({}).index < screen:count() then
+            awful.screen.focus_relative(1)
+        end
+    end, { description = 'focus the next screen', group = 'screen' }),
     awful.key({ modkey }, 'u', awful.client.urgent.jumpto, { description = 'jump to urgent client', group = 'client' }),
     awful.key({ modkey }, 'Tab', function()
         awful.client.focus.history.previous()
@@ -377,9 +370,12 @@ clientkeys = gears.table.join(
     awful.key({ modkey }, 'Return', function(c)
         c:swap(awful.client.getmaster())
     end, { description = 'move to master', group = 'client' }),
-    awful.key({ modkey }, 'o', function(c)
+    awful.key({ modkey, 'Shift' }, 'w', function(c)
+        c:move_to_screen(c.screen.index - 1)
+    end, { description = 'move to previous screen', group = 'client' }),
+    awful.key({ modkey, 'Shift' }, 'e', function(c)
         c:move_to_screen()
-    end, { description = 'move to screen', group = 'client' }),
+    end, { description = 'move to next screen', group = 'client' }),
     awful.key({ modkey }, 'y', function(c)
         c.ontop = not c.ontop
     end, { description = 'toggle keep on top', group = 'client' }),
@@ -563,4 +559,5 @@ end)
 -- }}}
 
 awful.spawn.with_shell 'picom -b'
+awful.spawn.with_shell 'nitrogen --restore'
 beautiful.tasklist_disable_icon = true

@@ -1,7 +1,8 @@
+[general]
 import = ["~/.config/alacritty/themes/hyper.toml"]
 
 [font]
-size = 9.0
+size = 8.5
 
 [font.normal]
 family = "SFMono Nerd Font Mono"
@@ -18,7 +19,3 @@ style = "Bold Italic"
 [font.italic]
 family = "SFMono Nerd Font Mono"
 style = "Italic"
-
-[window.padding]
-x = 0
-y = 0
