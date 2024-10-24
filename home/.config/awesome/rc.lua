@@ -4,6 +4,7 @@ pcall(require, 'luarocks.loader')
 
 -- Standard awesome library
 local gears = require 'gears'
+local gfs = gears.filesystem
 local awful = require 'awful'
 require 'awful.autofocus'
 -- Widget and layout library
@@ -56,7 +57,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init '/home/gustavo/.config/awesome/theme.lua'
+beautiful.init(gfs.get_configuration_dir() .. 'theme.lua')
 
 -- This is used later as the default terminal and editor to run.
 local terminal = 'alacritty'
@@ -140,6 +141,7 @@ local lain_fs = lain.widget.fs {
         widget:set_markup(text)
     end,
 }
+local wifi_icon = wibox.widget.imagebox
 local lain_net = lain.widget.net {
     notify = 'off',
     wifi_state = 'on',
@@ -170,22 +172,22 @@ local lain_net = lain.widget.net {
         widget:set_markup(net_status)
     end,
 }
-local lain_bat = lain.widget.bat {
-    notify = 'off',
-    battery = 'BAT1',
-    settings = function()
-        local ac = ''
-        if bat_now.status == 'Charging' then
-            ac = '↑'
-        end
-        local bat_label = markup.fg.color(label_color, 'bat')
-        local bat_value = bat_now.perc
-        if bat_value < 30 then
-            bat_value = markup.fg.color(alert_color, bat_value)
-        end
-        widget:set_markup(bat_label .. ' ' .. bat_value .. '%' .. ac)
-    end,
-}
+-- local lain_bat = lain.widget.bat {
+--     notify = 'off',
+--     battery = 'BAT1',
+--     settings = function()
+--         local ac = ''
+--         if bat_now.status == 'Charging' then
+--             ac = '↑'
+--         end
+--         local bat_label = markup.fg.color(label_color, 'bat')
+--         local bat_value = bat_now.perc
+--         if bat_value < 30 then
+--             bat_value = markup.fg.color(alert_color, bat_value)
+--         end
+--         widget:set_markup(bat_label .. ' ' .. bat_value .. '%' .. ac)
+--     end,
+-- }
 local updates_widget = awful.widget.watch('showupdates', 600)
 local wifi_ssid_widget = awful.widget.watch('iwgetid -r', 5)
 local separators = lain.util.separators
@@ -253,7 +255,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.container.margin(lain_cpu.widget, widgets_margin, widgets_margin),
             wibox.container.margin(lain_mem.widget, widgets_margin, widgets_margin),
             wibox.container.margin(lain_fs.widget, widgets_margin, widgets_margin),
-            wibox.container.margin(lain_bat.widget, widgets_margin, widgets_margin),
+            -- wibox.container.margin(lain_bat.widget, widgets_margin, widgets_margin),
             wibox.container.margin(mytextclock, widgets_margin, widgets_margin),
             wibox.container.margin(updates_widget, widgets_margin, widgets_margin),
             wibox.container.margin(s.mylayoutbox, widgets_margin, widgets_margin * 2, 4, 4),
@@ -263,7 +265,7 @@ end)
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = gears.table.join(
+local globalkeys = gears.table.join(
     awful.key({ modkey }, 's', hotkeys_popup.show_help, { description = 'show help', group = 'awesome' }),
     awful.key({ modkey }, 'Left', awful.tag.viewprev, { description = 'view previous', group = 'tag' }),
     awful.key({ modkey }, 'Right', awful.tag.viewnext, { description = 'view next', group = 'tag' }),
@@ -441,7 +443,7 @@ for i = 1, 9 do
     )
 end
 
-clientbuttons = gears.table.join(
+local clientbuttons = gears.table.join(
     awful.button({}, 1, function(c)
         c:emit_signal('request::activate', 'mouse_click', { raise = true })
     end),
