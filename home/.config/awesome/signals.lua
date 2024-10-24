@@ -1,5 +1,7 @@
 local awful = require 'awful'
 local beautiful = require 'beautiful'
+local gfs = require 'gears.filesystem'
+require 'utils/table_utils'
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -34,5 +36,52 @@ client.connect_signal('focus', function(c)
 end)
 client.connect_signal('unfocus', function(c)
     c.border_color = beautiful.border_normal
+end)
+
+local state_file = gfs.get_cache_dir() .. 'state'
+
+local function save_state()
+    local state = {}
+    for s in screen do
+        state[s.index] = {}
+        for _, t in pairs(s.tags) do
+            table.insert(state[s.index], {
+                id = t.index,
+                selected = t.selected,
+                activated = t.activated,
+                master_width_factor = t.master_width_factor,
+                column_count = t.column_count,
+                master_count = t.master_count,
+                layout_index = table.indexof(t.layouts, t.layout),
+            })
+        end
+    end
+    table.save(state, state_file)
+end
+
+awesome.connect_signal('exit', function(reason_restart)
+    if reason_restart then
+        save_state()
+    end
+end)
+
+local function restore_state()
+    local state = table.load(state_file)
+    for s in screen do
+        for _, v in pairs(state[s.index]) do
+            local t = s.tags[v.id]
+            t.selected = v.selected
+            t.activated = v.activated
+            t.master_width_factor = v.master_width_factor
+            t.column_count = v.column_count
+            t.master_count = v.master_count
+            t.layout = t.layouts[v.layout_index]
+        end
+    end
+    os.remove(state_file)
+end
+
+awesome.connect_signal('startup', function()
+    restore_state()
 end)
 -- }}}
