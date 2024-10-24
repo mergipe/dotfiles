@@ -83,7 +83,7 @@ theme.layout_cornersw = themes_path .. 'default/layouts/cornersww.png'
 theme.layout_cornerse = themes_path .. 'default/layouts/cornersew.png'
 
 -- Generate Awesome icon:
-theme.arch_icon = gfs.get_configuration_dir() .. 'archlinux-icon-crystal-32.svg'
+theme.arch_icon = gfs.get_configuration_dir() .. '/icons/archlinux-icon-crystal-32.svg'
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
