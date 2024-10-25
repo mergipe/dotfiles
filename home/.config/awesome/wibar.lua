@@ -58,7 +58,7 @@ local lain_fs = lain.widget.fs {
 }
 fs_widget.widget = lain_fs.widget
 local net_icon_widget = wibox.widget.imagebox()
-local wifi_ssid_widget = wibox.container.margin(awful.widget.watch('iwgetid -r', 5), dpi(3), beautiful.wibar_widget_margin)
+local wifi_ssid_widget = wibox.container.margin(awful.widget.watch('iwgetid -r', 2), dpi(3), beautiful.wibar_widget_margin)
 wifi_ssid_widget.visible = false
 local net_monitor_widget = wibox.container.margin(nil, dpi(3), beautiful.wibar_widget_margin)
 local lain_net = lain.widget.net {
@@ -116,15 +116,28 @@ local lain_bat = lain.widget.bat {
         end
         bat_widget.visible = true
         bat_icon_widget_container.visible = true
-        local bat_icon = beautiful.get_battery_icon(bat_now.perc, bat_now.status == 'Charging')
-        local bat_value = markup_value(bat_now.perc .. '%', bat_now.perc < 25)
+        local is_charging = bat_now.status == 'Charging'
+        local bat_icon = beautiful.get_battery_icon(bat_now.perc, is_charging)
+        local bat_value = markup_value(bat_now.perc .. '%', bat_now.perc < 25 and not is_charging)
         widget:set_markup(bat_value)
         bat_icon_widget:set_image(bat_icon)
     end,
 }
 bat_widget.widget = lain_bat.widget
-local updates_icon_widget = wibox.widget.imagebox(beautiful.updates_icon)
-local updates_widget = awful.widget.watch('updates-count', 600)
+local updates_icon_widget = wibox.container.margin(wibox.widget.imagebox(beautiful.updates_icon), beautiful.wibar_widget_margin, 0, 5, 5)
+local updates_widget_container = wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
+local updates_widget = awful.widget.watch('updates-count', 600, function(widget, stdout)
+    local updates_count = math.tointeger(stdout)
+    if updates_count == 0 then
+        updates_icon_widget.visible = false
+        updates_widget_container.visible = false
+        return
+    end
+    updates_icon_widget.visible = true
+    updates_widget_container.visible = true
+    widget:set_text(updates_count)
+end)
+updates_widget_container.widget = updates_widget
 local right_widgets = {
     layout = wibox.layout.fixed.horizontal,
     wibox.container.margin(net_icon_widget, beautiful.wibar_widget_margin, 0, 1, 1),
@@ -135,8 +148,8 @@ local right_widgets = {
     fs_widget,
     bat_widget,
     bat_icon_widget_container,
-    wibox.container.margin(updates_icon_widget, beautiful.wibar_widget_margin, 0, 5, 5),
-    wibox.container.margin(updates_widget, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin),
+    updates_icon_widget,
+    updates_widget_container,
     wibox.container.margin(clock_widget, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin * 2),
 }
 
