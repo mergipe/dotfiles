@@ -32,7 +32,7 @@ theme.border_marked = '#91231c'
 
 theme.wibar_height = dpi(23)
 theme.wibar_widget_label_color = '#9e9e9e'
-theme.wibar_widget_alert_color = '#ff2626'
+theme.wibar_widget_alert_color = '#da4453'
 theme.wibar_widget_margin = dpi(9)
 
 -- There are other variable sets
