@@ -9,8 +9,9 @@ beautiful.tasklist_disable_icon = true
 -- {{{ Wibar
 -- Create widgets
 --
-local widgets_margin = beautiful.xresources.apply_dpi(7)
-local mytextclock = wibox.widget.textclock('%a %d/%m/%y %H:%M:%S', 1)
+local dpi = beautiful.xresources.apply_dpi
+local widgets_margin = dpi(7)
+local clock_widget = wibox.widget.textclock('%a %d/%m/%y %H:%M:%S', 1)
 
 local function markup_value(value, use_alert_color)
     if use_alert_color then
@@ -20,6 +21,7 @@ local function markup_value(value, use_alert_color)
     end
 end
 
+local cpu_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
 local lain_cpu = lain.widget.cpu {
     settings = function()
         local label = markup.fg.color(beautiful.wibar_widget_label_color, 'cpu')
@@ -27,6 +29,8 @@ local lain_cpu = lain.widget.cpu {
         widget:set_markup(label .. ' ' .. value .. '%')
     end,
 }
+cpu_widget.widget = lain_cpu.widget
+local mem_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
 local lain_mem = lain.widget.mem {
     settings = function()
         local label = markup.fg.color(beautiful.wibar_widget_label_color, 'mem')
@@ -34,6 +38,8 @@ local lain_mem = lain.widget.mem {
         widget:set_markup(label .. ' ' .. value .. 'M(' .. mem_now.perc .. '%)')
     end,
 }
+mem_widget.widget = lain_mem.widget
+local fs_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
 local lain_fs = lain.widget.fs {
     showpopup = 'off',
     settings = function()
@@ -51,6 +57,11 @@ local lain_fs = lain.widget.fs {
         widget:set_markup(text)
     end,
 }
+fs_widget.widget = lain_fs.widget
+local net_icon_widget = wibox.widget.imagebox()
+local wifi_ssid_widget = wibox.container.margin(awful.widget.watch('iwgetid -r', 5), dpi(3), widgets_margin)
+wifi_ssid_widget.visible = false
+local net_monitor_widget = wibox.container.margin(nil, dpi(3), widgets_margin)
 local lain_net = lain.widget.net {
     notify = 'off',
     wifi_state = 'on',
@@ -70,22 +81,35 @@ local lain_net = lain.widget.net {
         local eth = net_now.devices[eth_device]
         local wlan = net_now.devices[wifi_device]
         if eth and eth.ethernet and eth.carrier == '1' then
-            local eth_label = markup.fg.color(beautiful.wibar_widget_label_color, eth_device)
-            net_status = net_status .. eth_label .. ' ↓' .. eth.received .. '↑' .. eth.sent
-        elseif wlan and wlan.wifi then
-            if wlan.carrier == '1' then
-                local wifi_label = markup.fg.color(beautiful.wibar_widget_label_color, wifi_device)
-                net_status = net_status .. wifi_label .. ' ↓' .. wlan.received .. '↑' .. wlan.sent
+            wifi_ssid_widget.visible = false
+            net_status = '↓' .. eth.received .. ' ↑' .. eth.sent
+            net_icon_widget:set_image(beautiful.wired_net_icon)
+        elseif wlan and wlan.wifi and wlan.carrier == '1' then
+            wifi_ssid_widget.visible = true
+            net_status = '↓' .. wlan.received .. ' ↑' .. wlan.sent
+            if wlan.signal < -90 then
+                net_icon_widget:set_image(beautiful.wireless_signal_none_icon)
+            elseif wlan.signal < -70 then
+                net_icon_widget:set_image(beautiful.wireless_signal_low_icon)
+            elseif wlan.signal < -60 then
+                net_icon_widget:set_image(beautiful.wireless_signal_ok_icon)
+            elseif wlan.signal < -50 then
+                net_icon_widget:set_image(beautiful.wireless_signal_good_icon)
+            else
+                net_icon_widget:set_image(beautiful.wireless_signal_excellent_icon)
             end
         end
         widget:set_markup(net_status)
     end,
 }
+net_monitor_widget.widget = lain_net.widget
+local bat_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
 local lain_bat = lain.widget.bat {
     notify = 'off',
     battery = 'BAT1',
     settings = function()
         if bat_now.perc == 'N/A' then
+            bat_widget.visible = false
             return
         end
         local ac = ''
@@ -97,17 +121,18 @@ local lain_bat = lain.widget.bat {
         widget:set_markup(bat_label .. ' ' .. bat_value .. '%' .. ac)
     end,
 }
+bat_widget.widget = lain_bat.widget
 local updates_widget = awful.widget.watch('showupdates', 600)
-local wifi_ssid_widget = awful.widget.watch('iwgetid -r', 5)
 local right_widgets = {
     layout = wibox.layout.fixed.horizontal,
-    wibox.container.margin(wifi_ssid_widget, widgets_margin, widgets_margin),
-    wibox.container.margin(lain_net.widget, widgets_margin, widgets_margin),
-    wibox.container.margin(lain_cpu.widget, widgets_margin, widgets_margin),
-    wibox.container.margin(lain_mem.widget, widgets_margin, widgets_margin),
-    wibox.container.margin(lain_fs.widget, widgets_margin, widgets_margin),
-    wibox.container.margin(lain_bat.widget, widgets_margin, widgets_margin),
-    wibox.container.margin(mytextclock, widgets_margin, widgets_margin),
+    wibox.container.margin(net_icon_widget, widgets_margin, widgets_margin, 5, 5),
+    wifi_ssid_widget,
+    net_monitor_widget,
+    cpu_widget,
+    mem_widget,
+    fs_widget,
+    bat_widget,
+    wibox.container.margin(clock_widget, widgets_margin, widgets_margin),
     wibox.container.margin(updates_widget, widgets_margin, widgets_margin * 2),
 }
 
