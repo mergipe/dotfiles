@@ -50,10 +50,9 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
-alias pacu="sudo pacman -Syu"
-alias paci="sudo pacman -S "
+alias pacu="paru -Syu"
+alias paci="paru -S "
 alias pacr="sudo pacman -Rs "
-alias paruu="paru -Syu"
 alias news="paru -Pw"
 alias checkorphans="pacman -Qdt"
 alias removeorphans="pacman -Qdtq | sudo pacman -Rns -"

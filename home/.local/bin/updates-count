@@ -1,0 +1,2 @@
+#!/bin/sh
+{ checkupdates; paru -Qua; } | wc -l

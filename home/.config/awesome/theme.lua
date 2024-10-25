@@ -33,6 +33,7 @@ theme.border_marked = '#91231c'
 theme.wibar_height = dpi(23)
 theme.wibar_widget_label_color = '#9e9e9e'
 theme.wibar_widget_alert_color = '#ff2626'
+theme.wibar_widget_margin = dpi(9)
 
 -- There are other variable sets
 -- overriding the default one when
@@ -87,6 +88,7 @@ theme.layout_cornerse = themes_path .. 'default/layouts/cornersew.png'
 -- Icons:
 local icons_path = gfs.get_configuration_dir() .. 'icons/'
 theme.arch_icon = icons_path .. 'arch.svg'
+theme.updates_icon = icons_path .. 'system-update-symbolic.svg'
 theme.cpu_icon = icons_path .. 'cpu.svg'
 theme.mem_icon = icons_path .. 'mem.svg'
 theme.wired_net_icon = icons_path .. 'network-wired-bold.svg'
@@ -96,7 +98,7 @@ theme.wireless_signal_ok_icon = icons_path .. 'network-wireless-60-bold.svg'
 theme.wireless_signal_good_icon = icons_path .. 'network-wireless-80-bold.svg'
 theme.wireless_signal_excellent_icon = icons_path .. 'network-wireless-100-bold.svg'
 theme.get_battery_icon = function(battery_level, is_charging)
-    local truncated_level = math.floor(battery_level / 10) * 10
+    local truncated_level = math.floor(battery_level / 10 + 0.5) * 10
     local icon_filename = 'battery-' .. string.format('%03d', truncated_level)
     if is_charging then
         icon_filename = icon_filename .. '-charging'

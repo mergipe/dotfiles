@@ -10,7 +10,6 @@ beautiful.tasklist_disable_icon = true
 -- Create widgets
 --
 local dpi = beautiful.xresources.apply_dpi
-local widgets_margin = dpi(7)
 local clock_widget = wibox.widget.textclock('%a %d/%m/%y %H:%M:%S', 1)
 
 local function markup_value(value, use_alert_color)
@@ -21,7 +20,7 @@ local function markup_value(value, use_alert_color)
     end
 end
 
-local cpu_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
+local cpu_widget = wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
 local lain_cpu = lain.widget.cpu {
     settings = function()
         local label = markup.fg.color(beautiful.wibar_widget_label_color, 'cpu')
@@ -30,7 +29,7 @@ local lain_cpu = lain.widget.cpu {
     end,
 }
 cpu_widget.widget = lain_cpu.widget
-local mem_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
+local mem_widget = wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
 local lain_mem = lain.widget.mem {
     settings = function()
         local label = markup.fg.color(beautiful.wibar_widget_label_color, 'mem')
@@ -39,7 +38,7 @@ local lain_mem = lain.widget.mem {
     end,
 }
 mem_widget.widget = lain_mem.widget
-local fs_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
+local fs_widget = wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
 local lain_fs = lain.widget.fs {
     showpopup = 'off',
     settings = function()
@@ -59,9 +58,9 @@ local lain_fs = lain.widget.fs {
 }
 fs_widget.widget = lain_fs.widget
 local net_icon_widget = wibox.widget.imagebox()
-local wifi_ssid_widget = wibox.container.margin(awful.widget.watch('iwgetid -r', 5), dpi(3), widgets_margin)
+local wifi_ssid_widget = wibox.container.margin(awful.widget.watch('iwgetid -r', 5), dpi(3), beautiful.wibar_widget_margin)
 wifi_ssid_widget.visible = false
-local net_monitor_widget = wibox.container.margin(nil, dpi(3), widgets_margin)
+local net_monitor_widget = wibox.container.margin(nil, dpi(3), beautiful.wibar_widget_margin)
 local lain_net = lain.widget.net {
     notify = 'off',
     wifi_state = 'on',
@@ -104,8 +103,8 @@ local lain_net = lain.widget.net {
 }
 net_monitor_widget.widget = lain_net.widget
 local bat_icon_widget = wibox.widget.imagebox()
-local bat_icon_widget_container = wibox.container.margin(bat_icon_widget, 0, widgets_margin, 2, 2)
-local bat_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
+local bat_icon_widget_container = wibox.container.margin(bat_icon_widget, 0, beautiful.wibar_widget_margin, 1, 1)
+local bat_widget = wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
 local lain_bat = lain.widget.bat {
     notify = 'off',
     battery = 'BAT1',
@@ -118,16 +117,17 @@ local lain_bat = lain.widget.bat {
         bat_widget.visible = true
         bat_icon_widget_container.visible = true
         local bat_icon = beautiful.get_battery_icon(bat_now.perc, bat_now.status == 'Charging')
-        local bat_value = markup_value(bat_now.perc, bat_now.perc < 30)
-        widget:set_markup(bat_value .. '%')
+        local bat_value = markup_value(bat_now.perc .. '%', bat_now.perc < 25)
+        widget:set_markup(bat_value)
         bat_icon_widget:set_image(bat_icon)
     end,
 }
 bat_widget.widget = lain_bat.widget
-local updates_widget = awful.widget.watch('showupdates', 600)
+local updates_icon_widget = wibox.widget.imagebox(beautiful.updates_icon)
+local updates_widget = awful.widget.watch('updates-count', 600)
 local right_widgets = {
     layout = wibox.layout.fixed.horizontal,
-    wibox.container.margin(net_icon_widget, widgets_margin, 0, 2, 2),
+    wibox.container.margin(net_icon_widget, beautiful.wibar_widget_margin, 0, 1, 1),
     wifi_ssid_widget,
     net_monitor_widget,
     cpu_widget,
@@ -135,8 +135,9 @@ local right_widgets = {
     fs_widget,
     bat_widget,
     bat_icon_widget_container,
-    wibox.container.margin(clock_widget, widgets_margin, widgets_margin),
-    wibox.container.margin(updates_widget, widgets_margin, widgets_margin * 2),
+    wibox.container.margin(updates_icon_widget, beautiful.wibar_widget_margin, 0, 5, 5),
+    wibox.container.margin(updates_widget, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin),
+    wibox.container.margin(clock_widget, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin * 2),
 }
 
 awful.screen.connect_for_each_screen(function(s)
@@ -167,16 +168,16 @@ awful.screen.connect_for_each_screen(function(s)
 
     local left_widgets = {
         layout = wibox.layout.fixed.horizontal,
-        wibox.container.margin(icon, widgets_margin * 2, widgets_margin, 4, 4),
-        wibox.container.margin(s.mytaglist, widgets_margin, widgets_margin),
-        wibox.container.margin(s.mylayoutbox, widgets_margin, widgets_margin, 4, 4),
+        wibox.container.margin(icon, beautiful.wibar_widget_margin * 2, beautiful.wibar_widget_margin, 4, 4),
+        wibox.container.margin(s.mytaglist, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin),
+        wibox.container.margin(s.mylayoutbox, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin, 4, 4),
     }
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         left_widgets,
-        wibox.container.margin(s.mytasklist, widgets_margin, widgets_margin), -- Middle widget
+        wibox.container.margin(s.mytasklist, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin), -- Middle widget
         right_widgets,
     }
 end)
