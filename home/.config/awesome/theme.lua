@@ -31,6 +31,8 @@ theme.border_focus = '#535d6c'
 theme.border_marked = '#91231c'
 
 theme.wibar_height = dpi(23)
+theme.wibar_widget_label_color = '#9e9e9e'
+theme.wibar_widget_alert_color = '#ff2626'
 
 -- There are other variable sets
 -- overriding the default one when
@@ -82,8 +84,11 @@ theme.layout_cornerne = themes_path .. 'default/layouts/cornernew.png'
 theme.layout_cornersw = themes_path .. 'default/layouts/cornersww.png'
 theme.layout_cornerse = themes_path .. 'default/layouts/cornersew.png'
 
--- Generate Awesome icon:
-theme.arch_icon = gfs.get_configuration_dir() .. '/icons/archlinux-icon-crystal-32.svg'
+-- Icons:
+local icons_path = gfs.get_configuration_dir() .. 'icons/'
+theme.arch_icon = icons_path .. 'arch.svg'
+theme.cpu_icon = icons_path .. 'cpu.svg'
+theme.mem_icon = icons_path .. 'mem.svg'
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

@@ -64,5 +64,5 @@ require 'rules'
 require 'wibar'
 require 'signals'
 
-awful.spawn.with_shell 'picom -b'
-awful.spawn.with_shell 'nitrogen --restore'
+awful.spawn 'picom -b'
+awful.spawn 'nitrogen --restore'
