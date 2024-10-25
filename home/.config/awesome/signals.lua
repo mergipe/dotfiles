@@ -67,6 +67,9 @@ end)
 
 local function restore_state()
     local state = table.load(state_file)
+    if state == nil then
+        return
+    end
     for s in screen do
         for _, v in pairs(state[s.index]) do
             local t = s.tags[v.id]

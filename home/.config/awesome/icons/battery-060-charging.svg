@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="22"
+   height="22"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="battery-060-charging.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="38.363636"
+     inkscape:cx="11"
+     inkscape:cy="11"
+     inkscape:window-width="1918"
+     inkscape:window-height="1055"
+     inkscape:window-x="1366"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <defs
+     id="defs1">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text {
+                color:#f2f2f2;
+            }</style>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6">
+      <path
+         id="path6"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         d="m 2,7 v 8 H 12 V 9.1757812 c -0.02569,-0.00366 -0.05515,-0.00596 -0.08984,-0.00977 -0.01528,-0.00168 -0.0077,-0.028095 -0.01172,-0.042969 -0.0028,-0.01026 -0.0051,-0.021024 -0.0078,-0.03125 -0.05444,-0.033403 -0.09205,-0.091945 -0.103516,-0.1621094 1.8e-4,-0.05203 -0.0095,-0.120112 0.04687,-0.15625 0.03875,-0.024821 0.07338,-0.035825 0.103516,-0.037109 0.01657,-0.032643 0.03809,-0.054909 0.0625,-0.066406 V 7 Z" />
+    </clipPath>
+  </defs>
+  <path
+     class="ColorScheme-Text"
+     d="m3 7c-0.554 0-1 0.446-1 1v6c0 0.554 0.446 1 1 1h4.3906l0.74023-2h-1.541c-0.013032-3.96e-4 -0.026056-1e-3 -0.039063-2e-3 -0.6752-0.02727-1.3926-0.60963-1.3926-1.4062 0-0.39018 0.16683-0.74366 0.36719-0.99414 0.00194-0.0026 0.00389-0.0052 0.00586-0.0078l2.9199-3.5898zm9 1.5957-0.14844 0.4043h0.14844z"
+     fill="currentColor"
+     id="path1"
+     clip-path="url(#clipPath6)" />
+  <path
+     class="ColorScheme-Text"
+     d="m3 5c-1.662 0-3 1.338-3 3v6c0 1.662 1.338 3 3 3h4.0293c-0.1043-0.32607-0.11005-0.68573-0.0058594-1h-4.0234c-1.108 0-2-0.892-2-2v-6c0-1.108 0.892-2 2-2h6.3008l0.78711-1zm9.9453 0c0.10403 0.32578 0.11025 0.68526 0.0059 1h4.0488c1.108 0 2 0.892 2 2v6c0 1.108-0.892 2-2 2h-6.3145l-0.78711 1h7.1016c1.662 0 3-1.338 3-3v-6c0-1.662-1.338-3-3-3zm8.0547 4v4c0.554 0 1-0.446 1-1v-2c0-0.554-0.446-1-1-1z"
+     fill="currentColor"
+     opacity=".5"
+     id="path2" />
+  <path
+     class="ColorScheme-Text"
+     d="m6.1581 11.592c0 0.23467 0.19781 0.39805 0.43229 0.40752h2.9766l-1.5932 4.3047c-0.22231 0.61747 0.43229 0.95094 0.83979 0.45698l4.854-5.9713c0.09878-0.11116 0.16048-0.24702 0.16048-0.37052 0-0.24702-0.19758-0.41954-0.44462-0.41993h-2.9642l1.5809-4.3047c0.22231-0.61754-0.43225-0.95102-0.82741-0.45698l-4.8662 5.9836c-0.098803 0.12352-0.14821 0.24704-0.14821 0.37056z"
+     fill="currentColor"
+     id="path3" />
+</svg>

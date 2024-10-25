@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = 'SFMono Nerd Font Mono, Regular 8'
+theme.font = 'SFMono Nerd Font Mono, Medium 8'
 
 theme.bg_normal = '#222222'
 theme.bg_focus = '#363636'
@@ -89,12 +89,20 @@ local icons_path = gfs.get_configuration_dir() .. 'icons/'
 theme.arch_icon = icons_path .. 'arch.svg'
 theme.cpu_icon = icons_path .. 'cpu.svg'
 theme.mem_icon = icons_path .. 'mem.svg'
-theme.wired_net_icon = icons_path .. 'network-wired.svg'
-theme.wireless_signal_none_icon = icons_path .. 'network-wireless-20.svg'
-theme.wireless_signal_low_icon = icons_path .. 'network-wireless-40.svg'
-theme.wireless_signal_ok_icon = icons_path .. 'network-wireless-60.svg'
-theme.wireless_signal_good_icon = icons_path .. 'network-wireless-80.svg'
-theme.wireless_signal_excellent_icon = icons_path .. 'network-wireless-100.svg'
+theme.wired_net_icon = icons_path .. 'network-wired-bold.svg'
+theme.wireless_signal_none_icon = icons_path .. 'network-wireless-20-bold.svg'
+theme.wireless_signal_low_icon = icons_path .. 'network-wireless-40-bold.svg'
+theme.wireless_signal_ok_icon = icons_path .. 'network-wireless-60-bold.svg'
+theme.wireless_signal_good_icon = icons_path .. 'network-wireless-80-bold.svg'
+theme.wireless_signal_excellent_icon = icons_path .. 'network-wireless-100-bold.svg'
+theme.get_battery_icon = function(battery_level, is_charging)
+    local truncated_level = math.floor(battery_level / 10) * 10
+    local icon_filename = 'battery-' .. string.format('%03d', truncated_level)
+    if is_charging then
+        icon_filename = icon_filename .. '-charging'
+    end
+    return icons_path .. icon_filename .. '.svg'
+end
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

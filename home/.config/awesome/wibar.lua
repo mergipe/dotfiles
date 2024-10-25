@@ -103,6 +103,8 @@ local lain_net = lain.widget.net {
     end,
 }
 net_monitor_widget.widget = lain_net.widget
+local bat_icon_widget = wibox.widget.imagebox()
+local bat_icon_widget_container = wibox.container.margin(bat_icon_widget, 0, widgets_margin, 2, 2)
 local bat_widget = wibox.container.margin(nil, widgets_margin, widgets_margin)
 local lain_bat = lain.widget.bat {
     notify = 'off',
@@ -110,28 +112,29 @@ local lain_bat = lain.widget.bat {
     settings = function()
         if bat_now.perc == 'N/A' then
             bat_widget.visible = false
+            bat_icon_widget_container.visible = false
             return
         end
-        local ac = ''
-        if bat_now.status == 'Charging' then
-            ac = '↑'
-        end
-        local bat_label = markup.fg.color(beautiful.wibar_widget_label_color, 'bat')
+        bat_widget.visible = true
+        bat_icon_widget_container.visible = true
+        local bat_icon = beautiful.get_battery_icon(bat_now.perc, bat_now.status == 'Charging')
         local bat_value = markup_value(bat_now.perc, bat_now.perc < 30)
-        widget:set_markup(bat_label .. ' ' .. bat_value .. '%' .. ac)
+        widget:set_markup(bat_value .. '%')
+        bat_icon_widget:set_image(bat_icon)
     end,
 }
 bat_widget.widget = lain_bat.widget
 local updates_widget = awful.widget.watch('showupdates', 600)
 local right_widgets = {
     layout = wibox.layout.fixed.horizontal,
-    wibox.container.margin(net_icon_widget, widgets_margin, widgets_margin, 5, 5),
+    wibox.container.margin(net_icon_widget, widgets_margin, 0, 2, 2),
     wifi_ssid_widget,
     net_monitor_widget,
     cpu_widget,
     mem_widget,
     fs_widget,
     bat_widget,
+    bat_icon_widget_container,
     wibox.container.margin(clock_widget, widgets_margin, widgets_margin),
     wibox.container.margin(updates_widget, widgets_margin, widgets_margin * 2),
 }
