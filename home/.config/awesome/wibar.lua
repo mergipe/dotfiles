@@ -24,8 +24,8 @@ local cpu_widget = wibox.container.margin(nil, beautiful.wibar_widget_margin, be
 local lain_cpu = lain.widget.cpu {
     settings = function()
         local label = markup.fg.color(beautiful.wibar_widget_label_color, 'cpu')
-        local value = markup_value(cpu_now.usage, cpu_now.usage > 80)
-        widget:set_markup(label .. ' ' .. value .. '%')
+        local value = markup_value(cpu_now.usage .. '%', cpu_now.usage > 80)
+        widget:set_markup(label .. ' ' .. value)
     end,
 }
 cpu_widget.widget = lain_cpu.widget
@@ -33,8 +33,8 @@ local mem_widget = wibox.container.margin(nil, beautiful.wibar_widget_margin, be
 local lain_mem = lain.widget.mem {
     settings = function()
         local label = markup.fg.color(beautiful.wibar_widget_label_color, 'mem')
-        local value = markup_value(mem_now.used, mem_now.perc > 85)
-        widget:set_markup(label .. ' ' .. value .. 'M(' .. mem_now.perc .. '%)')
+        local value = markup_value(mem_now.used .. 'M(' .. mem_now.perc .. '%)', mem_now.perc > 85)
+        widget:set_markup(label .. ' ' .. value)
     end,
 }
 mem_widget.widget = lain_mem.widget
@@ -45,13 +45,13 @@ local lain_fs = lain.widget.fs {
         local percentage_alert_threshold = 90
         local root = fs_now['/']
         local root_label = markup.fg.color(beautiful.wibar_widget_label_color, 'ssd')
-        local root_value = markup_value(root.percentage, root.percentage > percentage_alert_threshold)
-        local text = root_label .. ' ' .. root_value .. '%'
+        local root_value = markup_value(root.percentage .. '%', root.percentage > percentage_alert_threshold)
+        local text = root_label .. ' ' .. root_value
         local hdd = fs_now['/mnt/HDD']
         if hdd then
             local hdd_label = markup.fg.color(beautiful.wibar_widget_label_color, 'hdd')
-            local hdd_value = markup_value(hdd.percentage, hdd.percentage > percentage_alert_threshold)
-            text = text .. '  ' .. hdd_label .. ' ' .. hdd_value .. '%'
+            local hdd_value = markup_value(hdd.percentage .. '%', hdd.percentage > percentage_alert_threshold)
+            text = text .. '  ' .. hdd_label .. ' ' .. hdd_value
         end
         widget:set_markup(text)
     end,
