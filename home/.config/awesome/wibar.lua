@@ -51,7 +51,7 @@ local lain_fs = lain.widget.fs {
         if hdd then
             local hdd_label = markup.fg.color(beautiful.wibar_widget_label_color, 'hdd')
             local hdd_value = markup_value(hdd.percentage .. '%', hdd.percentage > percentage_alert_threshold)
-            text = text .. '  ' .. hdd_label .. ' ' .. hdd_value
+            text = text .. ' ' .. hdd_label .. ' ' .. hdd_value
         end
         widget:set_markup(text)
     end,
