@@ -126,6 +126,8 @@ local lain_bat = lain.widget.bat {
 bat_widget.widget = lain_bat.widget
 local updates_icon_widget = wibox.container.margin(wibox.widget.imagebox(beautiful.updates_icon), beautiful.wibar_widget_margin, 0, 5, 5)
 local updates_widget_container = wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
+updates_icon_widget.visible = false
+updates_widget_container.visible = false
 local updates_widget = awful.widget.watch('updates-count', 600, function(widget, stdout)
     local updates_count = math.tointeger(stdout)
     if updates_count == 0 then
