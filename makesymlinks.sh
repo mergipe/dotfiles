@@ -26,37 +26,37 @@ link_as_root() {
 echo "-- Linking config files from home"
 mkdir -p ~/.config
 mkdir -p ~/.config/systemd
-mkdir -p ~/.local
 link home/.config/alacritty ~/.config
-link home/.config/autorandr ~/.config
+# link home/.config/autorandr ~/.config
 link home/.config/awesome ~/.config
-link home/.config/dunst ~/.config
+# link home/.config/dunst ~/.config
 link home/.config/fontconfig ~/.config
-link home/.config/nvim ~/.config
 link home/.config/nsxiv ~/.config
+link home/.config/nvim ~/.config
 link home/.config/picom ~/.config
 link home/.config/redshift ~/.config
 link home/.config/systemd/user ~/.config/systemd
-link home/.config/xmobar ~/.config
+# link home/.config/xmobar ~/.config
+mkdir -p ~/.local
 link home/.local/bin ~/.local
 link home/.ssh/config ~/.ssh
-link home/scripts ~
 link home/.vim ~
-link home/.xmonad ~
+link home/scripts ~
+# link home/.xmonad ~
 link home/.clang-format ~
 link home/compile_flags.txt ~
 link home/.gitconfig ~
+link home/.stylua.toml ~
 link home/.xbindkeysrc ~
 link home/.xinitrc ~
 link home/.Xresources ~
 link home/.zshrc ~
-link home/.stylua.toml ~
 
 echo "-- Linking config files from etc"
+link_as_root etc/udev/rules.d/99-udisks2.rules /etc/udev/rules.d
 link_as_root etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d
 link_as_root etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d
 link_as_root etc/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d
-link_as_root etc/udev/rules.d/99-udisks2.rules /etc/udev/rules.d
 
 echo "-- Linking config files from usr"
 link_as_root usr/share/oh-my-zsh/custom /usr/share/oh-my-zsh
