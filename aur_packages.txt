@@ -1,14 +1,10 @@
 apple-fonts
-batsignal
-eccodes
 fontpreview
-google-cloud-cli
-intellij-idea-ultimate-edition
 lain-git
 nerd-fonts-sf-mono
 oh-my-zsh-git
 paru
 rtl8821au-dkms-git
-rxvt-unicode-truecolor-wide-glyphs
 stremio
 unityhub
+whitesur-icon-theme
