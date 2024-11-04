@@ -54,6 +54,7 @@ link home/.zshrc ~
 
 echo "-- Linking config files from etc"
 link_as_root etc/udev/rules.d/99-udisks2.rules /etc/udev/rules.d
+link_as_root etc/tmpfiles.d/media.conf /etc/tmpfiles.d
 link_as_root etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d
 link_as_root etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d
 link_as_root etc/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d
