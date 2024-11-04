@@ -20,6 +20,7 @@ godot
 gvim
 iw
 less
+libreoffice-still
 libva-utils
 linux
 linux-firmware
@@ -48,6 +49,7 @@ pulseaudio-alsa
 qbittorrent
 redshift
 ripgrep
+sdl2
 sdl2_image
 sdl2_mixer
 sdl2_ttf
