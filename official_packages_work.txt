@@ -47,6 +47,7 @@ neovim
 networkmanager
 nitrogen
 nodejs
+noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 npm
