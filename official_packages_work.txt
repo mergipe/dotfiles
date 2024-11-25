@@ -91,8 +91,11 @@ texinfo
 tiled
 tree
 ttf-dejavu-nerd
+ttf-indic-otf
+ttf-khmer
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
+ttf-tibetan-machine
 udiskie
 udisks2
 ueberzug
