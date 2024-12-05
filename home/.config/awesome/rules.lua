@@ -41,6 +41,7 @@ awful.rules.rules = {
                 'Wpa_gui',
                 'veromix',
                 'xtightvncviewer',
+                'Solaar',
                 'steam',
             },
 
