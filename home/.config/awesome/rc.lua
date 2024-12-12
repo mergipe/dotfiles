@@ -66,3 +66,4 @@ require 'signals'
 
 awful.spawn 'picom -b'
 awful.spawn 'nitrogen --restore'
+awful.spawn 'solaar --window=hide'
