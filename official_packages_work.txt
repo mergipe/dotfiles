@@ -41,7 +41,6 @@ lua
 man-db
 man-pages
 maven
-mupdf-gl
 ncspot
 neovim
 networkmanager
@@ -85,6 +84,7 @@ sdl2_ttf
 shotgun
 slock
 slop
+solaar
 spotify-launcher
 sxiv
 task
@@ -116,6 +116,9 @@ xorg-xinit
 xorg-xlsfonts
 xorg-xrandr
 xorg-xsetroot
+zathura
+zathura-djvu
+zathura-pdf-mupdf
 zsh
 zsh-autosuggestions
 zsh-completions
