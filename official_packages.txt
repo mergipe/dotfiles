@@ -1,6 +1,7 @@
 alacritty
 amd-ucode
 archlinux-wallpaper
+autorandr
 awesome
 base
 base-devel
@@ -30,7 +31,6 @@ lua
 man-db
 man-pages
 mpv
-mupdf
 neovim
 networkmanager
 nitrogen
@@ -50,6 +50,7 @@ picom
 playerctl
 pulseaudio
 pulseaudio-alsa
+python-typing_extensions
 qbittorrent
 redshift
 ripgrep
@@ -69,8 +70,11 @@ tiled
 tree
 tree-sitter-cli
 ttf-dejavu-nerd
+ttf-indic-otf
+ttf-khmer
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
+ttf-tibetan-machine
 udiskie
 udisks2
 unarchiver
@@ -83,8 +87,12 @@ wireless_tools
 xbindkeys
 xclip
 xorg-server
+xorg-xdpyinfo
 xorg-xinit
 xorg-xrandr
+zathura
+zathura-djvu
+zathura-pdf-mupdf
 zsh
 zsh-autosuggestions
 zsh-completions
