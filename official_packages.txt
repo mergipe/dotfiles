@@ -7,6 +7,7 @@ base
 base-devel
 btop
 ccache
+chromium
 clang
 cmake
 discord
@@ -54,10 +55,11 @@ python-typing_extensions
 qbittorrent
 redshift
 ripgrep
-sdl2
+sdl2-compat
 sdl2_image
 sdl2_mixer
 sdl2_ttf
+sdl3
 shotgun
 slock
 slop
