@@ -239,7 +239,7 @@ return {
                     '--completion-style=detailed',
                     '--fallback-style=LLVM',
                     '--function-arg-placeholders',
-                    '--header-insertion=iwyu',
+                    '--header-insertion=never',
                     '--header-insertion-decorators',
                     '-j=6',
                     '--pch-storage=memory',
