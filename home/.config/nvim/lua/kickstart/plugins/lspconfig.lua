@@ -236,9 +236,6 @@ return {
                     end,
                 },
             })
-            require("lspconfig").stylua.setup({
-                cmd = { "stylua", "--search-parent-directories" },
-            })
             require("lspconfig").clangd.setup({
                 cmd = {
                     "clangd",
