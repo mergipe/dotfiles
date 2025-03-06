@@ -35,6 +35,7 @@ link home/.config/nsxiv ~/.config
 link home/.config/nvim ~/.config
 link home/.config/picom ~/.config
 link home/.config/redshift ~/.config
+link home/.config/stylua ~/.config
 link home/.config/systemd/user ~/.config/systemd
 # link home/.config/xmobar ~/.config
 mkdir -p ~/.local
@@ -46,7 +47,6 @@ link home/scripts ~
 link home/.clang-format ~
 link home/compile_flags.txt ~
 link home/.gitconfig ~
-link home/.stylua.toml ~
 link home/.xbindkeysrc ~
 link home/.xinitrc ~
 link home/.Xresources ~
