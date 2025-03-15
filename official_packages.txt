@@ -1,5 +1,6 @@
 alacritty
 amd-ucode
+android-file-transfer
 archlinux-wallpaper
 autorandr
 awesome
@@ -56,9 +57,6 @@ qbittorrent
 redshift
 ripgrep
 sdl2-compat
-sdl2_image
-sdl2_mixer
-sdl2_ttf
 sdl3
 shotgun
 slock
