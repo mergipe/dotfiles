@@ -50,6 +50,7 @@ link home/.gitconfig ~
 link home/.xbindkeysrc ~
 link home/.xinitrc ~
 link home/.Xresources ~
+link home/.xserverrc ~
 link home/.zshrc ~
 
 echo "-- Linking config files from etc"
