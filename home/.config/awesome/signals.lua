@@ -1,11 +1,22 @@
-local awful = require 'awful'
-local beautiful = require 'beautiful'
-local gfs = require 'gears.filesystem'
-require 'utils/table_utils'
+local awful = require("awful")
+local beautiful = require("beautiful")
+local gears = require("gears")
+local gfs = require("gears.filesystem")
+require("utils/table_utils")
+
+local function set_rounded_border_if_floating(c)
+    if c.floating then
+        c.shape = function(cr, w, h)
+            gears.shape.rounded_rect(cr, w, h, 10)
+        end
+    else
+        c.shape = gears.shape.rectangle
+    end
+end
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
-client.connect_signal('manage', function(c)
+client.connect_signal("manage", function(c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     if not awesome.startup then
@@ -19,26 +30,30 @@ client.connect_signal('manage', function(c)
             end
         end
     end
-
     if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
+    set_rounded_border_if_floating(c)
+end)
+
+client.connect_signal("property::floating", function(c)
+    set_rounded_border_if_floating(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal('mouse::enter', function(c)
-    c:emit_signal('request::activate', 'mouse_enter', { raise = false })
+client.connect_signal("mouse::enter", function(c)
+    c:emit_signal("request::activate", "mouse_enter", { raise = false })
 end)
 
-client.connect_signal('focus', function(c)
+client.connect_signal("focus", function(c)
     c.border_color = beautiful.border_focus
 end)
-client.connect_signal('unfocus', function(c)
+client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
 
-local state_file = gfs.get_cache_dir() .. 'state'
+local state_file = gfs.get_cache_dir() .. "state"
 
 local function save_state()
     local state = {}
@@ -59,7 +74,7 @@ local function save_state()
     table.save(state, state_file)
 end
 
-awesome.connect_signal('exit', function(reason_restart)
+awesome.connect_signal("exit", function(reason_restart)
     if reason_restart then
         save_state()
     end
@@ -84,7 +99,7 @@ local function restore_state()
     os.remove(state_file)
 end
 
-awesome.connect_signal('startup', function()
+awesome.connect_signal("startup", function()
     restore_state()
 end)
 -- }}}
