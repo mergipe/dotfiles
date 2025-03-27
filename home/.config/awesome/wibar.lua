@@ -11,7 +11,7 @@ beautiful.tasklist_disable_icon = true
 -- Create widgets
 --
 local dpi = beautiful.xresources.apply_dpi
-local clock_widget = wibox.widget.textclock("%a %d/%m/%y %H:%M:%S", 1)
+local clock_widget = wibox.widget.textclock("%a %d %b  %H:%M:%S", 1)
 
 local function markup_value(value, use_alert_color)
     if use_alert_color then
