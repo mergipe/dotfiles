@@ -2,6 +2,7 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
 local lain = require("lain")
+local gears = require("gears")
 local markup = lain.util.markup
 
 beautiful.tasklist_disable_icon = true
@@ -176,8 +177,9 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         filter = awful.widget.tasklist.filter.currenttags,
         style = {
-            bg_normal = "#00000000",
-            bg_focus = "#363636ff",
+            shape = gears.shape.rounded_rect,
+            -- bg_normal = "#2020200",
+            -- bg_focus = "#3a3a3aff",
         },
     })
 

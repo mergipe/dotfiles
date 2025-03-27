@@ -13,13 +13,13 @@ local theme = {}
 
 theme.font = "SFMono Nerd Font Mono, Medium 8"
 
-theme.bg_normal = "#222222dd"
-theme.bg_focus = "#363636dd"
-theme.bg_urgent = "#da4453"
+theme.bg_normal = "#202020ff"
+theme.bg_focus = "#3a3a3aff"
+theme.bg_urgent = "#ec372d"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
 
-theme.fg_normal = "#e5e5e5"
+theme.fg_normal = "#e8e8e8"
 theme.fg_focus = theme.fg_normal
 theme.fg_urgent = theme.fg_normal
 theme.fg_minimize = theme.fg_normal
@@ -30,7 +30,7 @@ theme.border_normal = "#000000"
 theme.border_focus = "#535d6c"
 theme.border_marked = "#91231c"
 
-theme.wibar_height = dpi(23)
+theme.wibar_height = dpi(24)
 theme.wibar_widget_label_color = "#9e9e9e"
 theme.wibar_widget_alert_color = "#da4453"
 theme.wibar_widget_margin = dpi(9)
