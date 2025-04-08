@@ -1,9 +1,7 @@
-ack
 alacritty
 alsa-utils
 archlinux-wallpaper
 autorandr
-awesome
 base
 base-devel
 batsignal
@@ -15,6 +13,7 @@ cmake
 dbeaver
 discord
 dmenu
+dmidecode
 docker
 docker-buildx
 dust
@@ -38,6 +37,7 @@ libva-utils
 linux
 linux-firmware
 lua
+luarocks
 man-db
 man-pages
 maven
@@ -67,7 +67,6 @@ picom
 playerctl
 poppler
 pulseaudio
-pyenv
 python-numpy
 python-pandas
 python-pip
@@ -84,6 +83,7 @@ slock
 slop
 solaar
 spotify-launcher
+strace
 sxiv
 task
 texinfo
@@ -106,10 +106,12 @@ vimiv
 visualvm
 w3m
 wget
+wine
 wireless_tools
 xbindkeys
 xclip
 xorg-server
+xorg-server-xvfb
 xorg-xinit
 xorg-xlsfonts
 xorg-xrandr
@@ -117,6 +119,7 @@ xorg-xsetroot
 zathura
 zathura-djvu
 zathura-pdf-mupdf
+zram-generator
 zsh
 zsh-autosuggestions
 zsh-completions
