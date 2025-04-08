@@ -38,6 +38,7 @@ xbindkeys --poll-rc
 
 # change X shaped default cursor
 xsetroot -cursor_name left_ptr
+xset -b
 
 udiskie &
 
