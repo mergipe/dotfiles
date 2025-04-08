@@ -37,6 +37,7 @@ alias ll='ls -lah'
 alias l='ls -lah --group-directories-first'
 
 export PATH=$PATH:/home/gustavo/.local/bin:/home/gustavo/.config/vifm/vifmimg
+eval "$(luarocks path)"
 
 # resolve problems with Java applications on Xmonad
 export _JAVA_AWT_WM_NONREPARENTING=1
