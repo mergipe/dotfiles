@@ -186,7 +186,7 @@ awful.screen.connect_for_each_screen(function(s)
 
   local left_widgets = {
     layout = wibox.layout.fixed.horizontal,
-    wibox.container.margin(icon, beautiful.wibar_widget_margin * 2, beautiful.wibar_widget_margin, 4, 4),
+    wibox.container.margin(icon, beautiful.wibar_widget_margin * 2, beautiful.wibar_widget_margin, 7, 7),
     wibox.container.margin(s.mytaglist, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin),
     wibox.container.margin(s.mylayoutbox, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin, 4, 4),
   }
