@@ -1,9 +1,11 @@
 apple-fonts
+awesome-git
+dmg2img
 fontpreview
-lain-git
 nerd-fonts-sf-mono
 oh-my-zsh-git
 paru
+rider
 rtl8821au-dkms-git
 stremio
 unityhub
