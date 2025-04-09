@@ -99,7 +99,8 @@ local lain_net = lain.widget.net({
 })
 net_monitor_widget.widget = lain_net.widget
 local bat_icon_widget = wibox.widget.imagebox()
-local bat_icon_widget_container = wibox.container.margin(bat_icon_widget, 0, beautiful.wibar_widget_margin, 1, 1)
+local bat_icon_widget_container =
+  wibox.container.margin(bat_icon_widget, 0, beautiful.wibar_widget_margin, dpi(1), dpi(1))
 local bat_widget = wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
 local lain_bat = lain.widget.bat({
   notify = "off",
@@ -120,8 +121,13 @@ local lain_bat = lain.widget.bat({
   end,
 })
 bat_widget.widget = lain_bat.widget
-local updates_icon_widget =
-  wibox.container.margin(wibox.widget.imagebox(beautiful.updates_icon), beautiful.wibar_widget_margin, 0, 5, 5)
+local updates_icon_widget = wibox.container.margin(
+  wibox.widget.imagebox(beautiful.updates_icon),
+  beautiful.wibar_widget_margin,
+  0,
+  dpi(5),
+  dpi(5)
+)
 local updates_widget_container =
   wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
 updates_icon_widget.visible = false
@@ -140,7 +146,7 @@ end)
 updates_widget_container.widget = updates_widget
 local right_widgets = {
   layout = wibox.layout.fixed.horizontal,
-  wibox.container.margin(net_icon_widget, beautiful.wibar_widget_margin, 0, 1, 1),
+  wibox.container.margin(net_icon_widget, beautiful.wibar_widget_margin, 0, dpi(1), dpi(1)),
   wifi_ssid_widget,
   net_monitor_widget,
   cpu_widget,
@@ -186,9 +192,9 @@ awful.screen.connect_for_each_screen(function(s)
 
   local left_widgets = {
     layout = wibox.layout.fixed.horizontal,
-    wibox.container.margin(icon, beautiful.wibar_widget_margin * 2, beautiful.wibar_widget_margin, 7, 7),
+    wibox.container.margin(icon, beautiful.wibar_widget_margin * 2, beautiful.wibar_widget_margin, dpi(4), dpi(4)),
     wibox.container.margin(s.mytaglist, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin),
-    wibox.container.margin(s.mylayoutbox, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin, 4, 4),
+    wibox.container.margin(s.mylayoutbox, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin, dpi(4), dpi(4)),
   }
 
   -- Add widgets to the wibox
