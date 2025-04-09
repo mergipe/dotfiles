@@ -59,6 +59,7 @@ alias paccu="checkupdates+aur"
 alias pacco="pacman -Qdt"
 alias pacro="pacman -Qdtq | sudo pacman -Rns -"
 alias off="shutdown now"
+alias rofi="rofi -dpi 1"
 
 # ctrl + L to clear the backbuffer
 function clear-screen-and-scrollback() {

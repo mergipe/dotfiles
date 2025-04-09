@@ -106,7 +106,7 @@ local globalkeys = gears.table.join(
 
   -- rofi
   awful.key({ modkey }, "p", function()
-    awful.spawn("rofi -show drun")
+    awful.spawn("rofi -dpi 1 -show drun")
   end, { description = "open rofi", group = "launcher" })
 )
 
