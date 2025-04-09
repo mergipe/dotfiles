@@ -76,6 +76,7 @@ qbittorrent
 r
 redshift
 ripgrep
+rofi
 sdl2-compat
 sdl3
 shotgun
