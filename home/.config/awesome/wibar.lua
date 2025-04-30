@@ -104,7 +104,7 @@ local bat_icon_widget_container =
 local bat_widget = wibox.container.margin(nil, beautiful.wibar_widget_margin, beautiful.wibar_widget_margin)
 local lain_bat = lain.widget.bat({
   notify = "off",
-  battery = "BAT1",
+  battery = "BAT0",
   settings = function()
     if bat_now.perc == "N/A" then
       bat_widget.visible = false
