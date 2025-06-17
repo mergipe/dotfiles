@@ -42,7 +42,5 @@ xset -b
 
 udiskie &
 
-nvidia-settings --load-config-only
-
 # start window manager
 exec /usr/bin/awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
