@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    background-color: rgba(32, 32, 32, 0.7);
+    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+    color: #e8e8e8;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -56,7 +56,7 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #e8e8e8;
 }
 
 #workspaces button:hover {
@@ -69,7 +69,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #ec372d;
 }
 
 #mode {
@@ -95,7 +95,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: #e8e8e8;
 }
 
 #window,
@@ -129,7 +129,7 @@ button:hover {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background-color: #e8e8e8;
         color: #000000;
     }
 }
