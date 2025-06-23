@@ -155,8 +155,8 @@
         },
         "format": "batt {capacity}%",
         "format-full": "batt {capacity}%",
-        "format-charging": "batt {capacity}% ",
-        "format-plugged": "batt {capacity}% ",
+        "format-charging": "batt {capacity}%",
+        "format-plugged": "batt {capacity}%",
         // "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
