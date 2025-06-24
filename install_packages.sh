@@ -2,17 +2,16 @@
 
 SCRIPT_PATH=`readlink -f $0`
 BASE_DIR=`dirname $SCRIPT_PATH`
-OFFICIAL_PACKAGES_FILE="$BASE_DIR/official_packages.txt"
-AUR_PACKAGES_FILE="$BASE_DIR/aur_packages.txt"
-OFFICIAL_PACKAGES=`tr "\n" " " < $OFFICIAL_PACKAGES_FILE`
+OFFICIAL_PACKAGES_FILE="$BASE_DIR/pkglist.txt"
+AUR_PACKAGES_FILE="$BASE_DIR/pkglist_aur.txt"
 AUR_CLONE_DIR="~/aur"
 AUR_CLONE_BASE_URL="https://aur.archlinux.org"
 
-echo "-- Updating official packages"
+echo "-- Updating packages"
 sudo pacman -Syu
 
-echo "-- Installing official packages from $OFFICIAL_PACKAGES_FILE"
-sudo pacman -S $OFFICIAL_PACKAGES
+echo "-- Installing packages from $OFFICIAL_PACKAGES_FILE"
+sudo pacman -S --needed - < $OFFICIAL_PACKAGES_FILE
 
 echo "-- Installing AUR packages from $AUR_PACKAGES_FILE"
 while IFS= read -r package; do

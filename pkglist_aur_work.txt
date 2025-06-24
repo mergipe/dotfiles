@@ -1,6 +1,9 @@
-ack
 apple-fonts
 awesome-git
+clion
+clion-cmake
+clion-gdb
+clion-lldb
 eccodes
 fontpreview
 google-cloud-cli
@@ -9,5 +12,3 @@ nerd-fonts-sf-mono
 oh-my-zsh-git
 paru
 python312
-unityhub
-whitesur-icon-theme
