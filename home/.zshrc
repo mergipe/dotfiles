@@ -51,6 +51,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+export MAKEFLAGS="--jobs=$(nproc)"
 
 alias pacu="paru -Syu"
 alias paci="paru -S"
