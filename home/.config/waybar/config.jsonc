@@ -18,19 +18,20 @@
     ],
     "modules-right": [
         // "mpd",
-        "idle_inhibitor",
+        // "idle_inhibitor",
         "pulseaudio",
         "network",
         // "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
-        "disk",
+        "disk#disk1",
+        "disk#disk2",
         // "backlight",
         // "keyboard-state",
         // "sway/language",
         "battery",
-        "battery#bat2",
+        // "battery#bat2",
         "clock",
         "tray"
         // "custom/power"
@@ -139,8 +140,13 @@
         // "format-icons": ["", "", ""],
         "tooltip": false
     },
-    "disk": {
-        "format": "disk {percentage_used}%"
+    "disk#disk1": {
+        "path": "/",
+        "format": "/ {percentage_used}%"
+    },
+    "disk#disk2": {
+        "path": "/mnt/data",
+        "format": "/mnt/data {percentage_used}%"
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -162,9 +168,9 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
+    // "battery#bat2": {
+    //     "bat": "BAT2"
+    // },
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
