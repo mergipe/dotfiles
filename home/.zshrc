@@ -1,4 +1,5 @@
 ZSH=/usr/share/oh-my-zsh
+ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 ZSH_THEME="robbyrussell-mod"
 
 plugins=(
@@ -57,7 +58,7 @@ alias pacu="paru -Syu"
 alias paci="paru -S"
 alias pacr="sudo pacman -Rs"
 alias news="paru -Pw"
-alias paccu="paru -Qu"
+alias paccu="checkupdates+aur"
 alias pacco="pacman -Qdt"
 alias pacro="pacman -Qdtq | sudo pacman -Rns -"
 alias off="shutdown now"
