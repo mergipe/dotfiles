@@ -1,3 +1,4 @@
+7zip
 alacritty
 alsa-utils
 archlinux-contrib
@@ -5,12 +6,14 @@ archlinux-wallpaper
 autorandr
 base
 base-devel
+bat
 batsignal
 btop
 ccache
 chromium
 clang
 dbeaver
+discord
 dmenu
 dmidecode
 docker
@@ -18,9 +21,9 @@ docker-buildx
 dunst
 dust
 firefox
-flatpak
 fzf
 gdb
+gdu
 git
 graphviz
 grim
@@ -39,6 +42,7 @@ intel-media-driver
 intel-ucode
 jdk11-openjdk
 jdk17-openjdk
+jq
 jupyter-notebook
 kotlin
 libreoffice-still
@@ -49,6 +53,7 @@ linux-lts
 luarocks
 man-db
 man-pages
+mangohud
 maven
 neovim
 networkmanager
@@ -98,6 +103,7 @@ sxiv
 task
 texinfo
 tiled
+tldr
 tree
 ttf-dejavu-nerd
 ttf-indic-otf
@@ -107,12 +113,10 @@ ttf-nerd-fonts-symbols-mono
 ttf-tibetan-machine
 udiskie
 udisks2
-ueberzug
+ueberzugpp
 unarchiver
 valgrind
 vi
-vifm
-vimiv
 visualvm
 w3m
 waybar
@@ -131,6 +135,7 @@ xorg-xlsfonts
 xorg-xrandr
 xorg-xsetroot
 xterm
+yazi
 zathura
 zathura-djvu
 zathura-pdf-mupdf
