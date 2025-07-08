@@ -122,6 +122,7 @@ w3m
 waybar
 wget
 wireless_tools
+wireplumber
 wl-clip-persist
 wl-clipboard
 xbindkeys
