@@ -129,7 +129,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "mem {}%"
+        "format": "ram {}%"
     },
     "temperature": {
         // "thermal-zone": 10,
