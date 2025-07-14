@@ -145,7 +145,7 @@
 
     ### Text ###
 
-    font = SF Mono 10
+    font = SF Mono 8
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -233,10 +233,10 @@
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
     # max_icon_size takes precedence over this.
-    min_icon_size = 32
+    min_icon_size = 16
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 64
 
     # Paths to default icons (only necessary when not using recursive icon lookup)
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
@@ -347,7 +347,7 @@
 	highlight = "#722ae6, #e4b5cb"
     timeout = 20
     # Icon for notifications with low urgency
-    #default_icon = dialog-information
+    default_icon = dialog-information
 
 [urgency_normal]
     background = "#222222"
@@ -357,7 +357,7 @@
     timeout = 0
     override_pause_level = 30
     # Icon for notifications with normal urgency
-    # default_icon = dialog-information
+    default_icon = dialog-information
 
 [urgency_critical]
     background = "#222222"
@@ -367,7 +367,7 @@
     timeout = 0
     override_pause_level = 60
     # Icon for notifications with critical urgency
-    # default_icon = dialog-warning
+    default_icon = dialog-warning
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
