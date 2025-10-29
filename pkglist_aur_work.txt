@@ -3,6 +3,7 @@ awesome-git
 clion
 clion-cmake
 clion-gdb
+clion-jre
 clion-lldb
 eccodes
 fontpreview
@@ -12,3 +13,5 @@ nerd-fonts-sf-mono
 oh-my-zsh-git
 paru
 python312
+rider
+unityhub

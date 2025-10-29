@@ -8,6 +8,9 @@ base
 base-devel
 bat
 batsignal
+blueman
+bluez
+bluez-utils
 btop
 ccache
 chromium
@@ -25,6 +28,7 @@ fzf
 gdb
 gdu
 git
+gnome-keyring
 graphviz
 grim
 gunicorn
@@ -78,9 +82,12 @@ percona-server
 percona-server-clients
 perf
 picom
+pipewire-alsa
+pipewire-audio
+pipewire-jack
+pipewire-pulse
 playerctl
 poppler
-pulseaudio
 pyenv
 python-numpy
 python-pandas
@@ -91,7 +98,7 @@ qbittorrent
 r
 redshift
 ripgrep
-rofi-wayland
+rofi
 shotgun
 slock
 slop
@@ -101,9 +108,11 @@ spotify-launcher
 strace
 sxiv
 task
+terraform
 texinfo
 tiled
 tldr
+tlp
 tree
 ttf-dejavu-nerd
 ttf-indic-otf
