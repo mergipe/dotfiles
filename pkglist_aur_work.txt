@@ -1,5 +1,4 @@
 apple-fonts
-awesome-git
 clion
 clion-cmake
 clion-gdb

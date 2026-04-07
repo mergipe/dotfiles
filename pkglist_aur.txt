@@ -1,5 +1,4 @@
 apple-fonts
-awesome-git
 dmg2img
 fontpreview
 nerd-fonts-sf-mono
