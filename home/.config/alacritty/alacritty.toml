@@ -19,3 +19,8 @@ style = "Bold Italic"
 [font.italic]
 family = "SFMono Nerd Font Mono"
 style = "Italic"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
