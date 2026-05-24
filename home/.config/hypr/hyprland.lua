@@ -34,7 +34,7 @@ hl.monitor({
   mode = "3840x2160@144",
   position = "auto",
   scale = "2",
-  disabled = false,
+  disabled = true,
 })
 
 hl.monitor({
@@ -76,11 +76,11 @@ local playerctl = "playerctl --player=spotify,firefox"
 hl.on("hyprland.start", function()
   hl.exec_cmd("/usr/bin/dunst")
   hl.exec_cmd("udiskie")
-  hl.exec_cmd("hyprpaper & hyprsunset")
+  hl.exec_cmd("waybar")
+  hl.exec_cmd("hyprpaper & hyprsunset & hypridle")
   hl.exec_cmd("wl-clip-persist --clipboard regular")
   hl.exec_cmd("solaar --window=hide")
   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-  hl.exec_cmd("waybar")
 end)
 
 -------------------------------
