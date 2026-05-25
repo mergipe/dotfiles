@@ -34,7 +34,7 @@ hl.monitor({
   mode = "3840x2160@144",
   position = "auto",
   scale = "2",
-  disabled = true,
+  disabled = false,
 })
 
 hl.monitor({
@@ -77,7 +77,9 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("/usr/bin/dunst")
   hl.exec_cmd("udiskie")
   hl.exec_cmd("waybar")
-  hl.exec_cmd("hyprpaper & hyprsunset & hypridle")
+  hl.exec_cmd("hyprpaper")
+  hl.exec_cmd("hyprsunset")
+  hl.exec_cmd("hypridle")
   hl.exec_cmd("wl-clip-persist --clipboard regular")
   hl.exec_cmd("solaar --window=hide")
   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
