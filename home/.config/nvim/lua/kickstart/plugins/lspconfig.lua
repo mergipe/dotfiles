@@ -216,6 +216,7 @@ return {
         "glsl_analyzer",
         "clang-format",
         "xmlformatter",
+        "ts_ls",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -250,6 +251,7 @@ return {
       vim.lsp.enable("pyright")
       vim.lsp.enable("kotlin_language_server")
       vim.lsp.enable("glsl_analyzer")
+      vim.lsp.enable("ts_ls")
     end,
   },
 }
