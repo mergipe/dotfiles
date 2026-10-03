@@ -61,6 +61,8 @@ alias news="paru -Pw"
 alias paccu="checkupdates+aur"
 alias pacco="pacman -Qdt"
 alias pacro="pacman -Qdtq | sudo pacman -Rns -"
+alias pacl="pacman -Qqen"
+alias pacla="pacman -Qqem"
 alias off="shutdown now"
 alias rofi="rofi -dpi 1"
 
