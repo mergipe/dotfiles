@@ -159,10 +159,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "batt {capacity}%",
-        "format-full": "batt {capacity}%",
-        "format-charging": "batt {capacity}%",
-        "format-plugged": "batt {capacity}%",
+        "format": "bat {capacity}%",
+        "format-full": "bat {capacity}%",
+        "format-charging": "bat {capacity}%",
+        "format-plugged": "bat {capacity}%",
         // "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
