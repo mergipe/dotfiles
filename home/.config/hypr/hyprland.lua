@@ -29,6 +29,14 @@ hl.monitor({
   scale = "1.5",
 })
 
+hl.monitor({
+  output = "desc:Samsung Electric Company QN90D 0x01000E00",
+  mode = "3840x2160@144",
+  position = "auto",
+  scale = "2",
+  disabled = true,
+})
+
 hl.config({
   xwayland = {
     force_zero_scaling = true,
