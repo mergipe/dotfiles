@@ -279,11 +279,12 @@ hl.device({
 ---------------------
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
-local restartCmd = "pkill 'waybar|hyprpaper' & hyprctl dispatch 'hl.dsp.exec_cmd(\"waybar & hyprpaper\")'"
+local reloadCmd =
+  "hyprctl reload & pkill 'waybar|hyprpaper' & hyprctl dispatch 'hl.dsp.exec_cmd(\"waybar & hyprpaper\")'"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(restartCmd))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(reloadCmd))
 hl.bind(
   mainMod .. " + SHIFT + Q",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
