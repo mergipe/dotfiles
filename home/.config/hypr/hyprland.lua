@@ -94,7 +94,7 @@ hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
-hl.env("GRIM_DEFAULT_DIR", "$HOME/screenshots")
+hl.env("GRIM_DEFAULT_DIR", os.getenv("HOME") .. "/screenshots")
 
 -----------------------
 ----- PERMISSIONS -----
