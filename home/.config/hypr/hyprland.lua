@@ -16,32 +16,17 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
 hl.monitor({
-  output = "DP-1",
-  mode = "3840x2160@144",
-  position = "0x0",
-  scale = "2",
-})
-
-hl.monitor({
-  output = "eDP-1",
-  mode = "1366x768@60",
-  position = "0x0",
-  scale = "1",
-})
-
-hl.monitor({
-  output = "HDMI-A-1",
+  output = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. M28U 23160B005306",
   mode = "3840x2160@144",
   position = "auto",
   scale = "2",
-  disabled = true,
 })
 
 hl.monitor({
-  output = "",
-  mode = "preferred",
-  position = "auto",
-  scale = "auto",
+  output = "desc:Lenovo Group Limited N140JCA-ELP",
+  mode = "1920x1200@60",
+  position = "0x0",
+  scale = "1.5",
 })
 
 hl.config({
@@ -61,7 +46,7 @@ local run = "rofi -dpi 1 -show run"
 local browser = "firefox"
 local lock = "hyprlock"
 local screenshot = "grim -c"
-local screenshot_area = "grim -c -g $(slurp)"
+local screenshot_area = 'grim -c -g "$(slurp)"'
 local playerctl = "playerctl --player=spotify,firefox"
 
 -------------------
@@ -262,6 +247,7 @@ hl.config({
     repeat_delay = 130,
     touchpad = {
       natural_scroll = true,
+      scroll_factor = 0.4,
     },
   },
 })
@@ -275,9 +261,9 @@ hl.config({
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-  name = "elan06fa:00-04f3:31be-touchpad",
-  sensitivity = 0.4,
-  accel_profile = "flat",
+  name = "elan06e9:00-04f3:332e-touchpad",
+  sensitivity = 0.2,
+  accel_profile = "adaptative",
 })
 
 ---------------------
@@ -285,10 +271,11 @@ hl.device({
 ---------------------
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local restartCmd = "pkill 'waybar|hyprpaper' & hyprctl dispatch 'hl.dsp.exec_cmd(\"waybar & hyprpaper\")'"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("pkill waybar & hyprctl dispatch 'hl.dsp.exec_cmd(\"waybar\")'"))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(restartCmd))
 hl.bind(
   mainMod .. " + SHIFT + Q",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
@@ -296,6 +283,7 @@ hl.bind(
 hl.bind(mainMod .. " + SHIFT + F12", hl.dsp.exec_cmd(lock))
 hl.bind(mainMod .. " + print", hl.dsp.exec_cmd(screenshot))
 hl.bind(mainMod .. " + SHIFT + print", hl.dsp.exec_cmd(screenshot_area))
+hl.bind(mainMod .. " + XF86SelectiveScreenshot", hl.dsp.exec_cmd(screenshot_area))
 
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.layout("togglesplit")) -- dwindle only

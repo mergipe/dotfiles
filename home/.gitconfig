@@ -15,4 +15,4 @@ autocrlf = input
 [credential]
 	helper = cache
 [init]
-	defaultBranch = master
+	defaultBranch = main
