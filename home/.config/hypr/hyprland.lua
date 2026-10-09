@@ -382,6 +382,8 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(playerctl .. " previous"), { locked = t
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pactl set-source-mute @DEFAULT_SOURCE@ toggle"), { locked = true })
 
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("hyprlock"), { locked = true })
+
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
