@@ -166,7 +166,11 @@
         // "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "events": {
+            "on-discharging-warning": "notify-send -u normal 'Low battery'",
+            "on-discharging-critical": "notify-send -u critical 'Very low battery'"
+        }
     },
     // "battery#bat2": {
     //     "bat": "BAT2"
