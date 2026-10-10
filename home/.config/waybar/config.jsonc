@@ -8,6 +8,7 @@
     // Choose the order of the modules
     "fixed-center": false,
     "modules-left": [
+        "custom/logo",
         "hyprland/workspaces",
         "hyprland/submap"
         // "sway/scratchpad",
@@ -19,40 +20,31 @@
     "modules-right": [
         // "mpd",
         // "idle_inhibitor",
+        "tray",
         "pulseaudio",
         "network",
         // "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
-        "disk#disk1",
-        "disk#disk2",
+        "disk",
         // "backlight",
         // "keyboard-state",
         // "sway/language",
         "battery",
         // "battery#bat2",
-        "clock",
-        "tray"
+        "clock"
         // "custom/power"
     ],
     // Modules configuration
+    "custom/logo": {
+        "format": " ",
+        "tooltip": false
+    },
     "hyprland/workspaces": {
-        "active-only": false,
-        "disable-scroll": true,
-        "all-outputs": false,
-        "warp-on-scroll": false,
-        "format": "{name}: {icon}",
-        "format-icons": {
-            // "1": "",
-            // "2": "",
-            // "3": "",
-            // "4": "",
-            // "5": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+        "format": "{name}",
+        "show-special": true,
+        "tooltip": false
     },
     "hyprland/window": {
         "separate-outputs": true
@@ -119,34 +111,40 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "format": "{:%a %d %b  %H:%M:%S}",
+        "format": "{:%a %b %d  %H:%M}",
         "interval": 1,
         "locale": "pt_BR.utf8",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        //"min-length": 17
     },
     "cpu": {
-        "format": "cpu {usage}%",
-        "tooltip": false
+        "format": "  {usage}%",
+        "tooltip": false,
+        "tooltip-format": "{avg_frequency}",
+        //"min-length": 7
     },
     "memory": {
-        "format": "ram {}%"
+        "format": "  {percentage}%",
+        "tooltip-format": "{used:0.1f} GB / {total:0.1f} GB",
+        //"min-length": 7
     },
     "temperature": {
         // "thermal-zone": 10,
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-        "critical-threshold": 80,
+        //"hwmon-name": "k10temp",
+        //"input-filename": "temp1_input",
+        //"hwmon-by-name": "k10temp",
+        "critical-threshold": 95,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "temp {temperatureC}°C",
-        // "format-icons": ["", "", ""],
-        "tooltip": false
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false,
+        //"min-length": 7
     },
-    "disk#disk1": {
+    "disk": {
         "path": "/",
-        "format": "/ {percentage_used}%"
-    },
-    "disk#disk2": {
-        "path": "/mnt/data",
-        "format": "/mnt/data {percentage_used}%"
+        "format": "   {percentage_used}%",
+        //"min-length": 8
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -188,31 +186,38 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%)",
-        "format-ethernet": "{ifname}",
-        "tooltip-format": "{gwaddr}",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "Disconnected",
+        "format-ethernet": "󰈀",
+        "format-wifi": "{icon}",
+        "format-linked": "",
+        "format-disconnected": "󰪎",
+        "format-disabled": "󰲜",
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-wifi": "{essid}",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disabled": "Disabled",
+        //"min-length": 3
         // "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format": "{icon}    {format_source}",
+        "format-bluetooth": "{icon}    {format_source}",
+        "format-muted": "    {format_source}",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
+            "default": ["", "", "", ""],
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "speaker": ["", "", "", ""],
+            "headset": "",
             "phone": "",
             "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "car": ""
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "tooltip-format": "{volume}%   {source_volume}%"
+        //"min-length": 8
     },
     // "custom/media": {
     //     "format": "{icon} {text}",
