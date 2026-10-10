@@ -124,13 +124,13 @@
         //"min-length": 7
     },
     "memory": {
-        "format": "  {percentage}%",
+        "format": "   {percentage}%",
         "tooltip-format": "{used:0.1f} GB / {total:0.1f} GB",
         //"min-length": 7
     },
     "temperature": {
         // "thermal-zone": 10,
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
         //"hwmon-name": "k10temp",
         //"input-filename": "temp1_input",
         //"hwmon-by-name": "k10temp",
@@ -143,7 +143,7 @@
     },
     "disk": {
         "path": "/",
-        "format": "   {percentage_used}%",
+        "format": "  {percentage_used}%",
         //"min-length": 8
     },
     "backlight": {
@@ -157,14 +157,14 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "bat {capacity}%",
-        "format-full": "bat {capacity}%",
-        "format-charging": "bat {capacity}%",
-        "format-plugged": "bat {capacity}%",
+        "format": "{icon}   {capacity}%",
         // "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": {
+            "default": ["", "", "", "", ""],
+            "charging": ["", "", "", "", ""]
+        },
         "events": {
             "on-discharging-warning": "notify-send -u normal 'Low battery'",
             "on-discharging-critical": "notify-send -u critical 'Very low battery'"
