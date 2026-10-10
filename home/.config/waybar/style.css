@@ -101,6 +101,11 @@ button:hover {
     font-feature-settings: "tnum"; 
 }
 
+#custom-logo {
+    padding-right: 4px;
+}
+
+
 #window,
 #workspaces {
     margin: 0 4px;
