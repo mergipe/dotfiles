@@ -157,13 +157,13 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}   {capacity}%",
+        "format": "{icon}  {capacity}%",
         // "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": {
-            "default": ["", "", "", "", ""],
-            "charging": ["", "", "", "", ""]
+            "default": ["󱃍", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾",  "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
         },
         "events": {
             "on-discharging-warning": "notify-send -u normal 'Low battery'",
