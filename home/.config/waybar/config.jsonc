@@ -9,8 +9,8 @@
     "fixed-center": false,
     "modules-left": [
         "custom/logo",
-        "hyprland/workspaces",
-        "hyprland/submap"
+        "hyprland/workspaces"
+        //"hyprland/submap"
         // "sway/scratchpad",
         // "custom/media"
     ],
@@ -47,7 +47,8 @@
         "tooltip": false
     },
     "hyprland/window": {
-        "separate-outputs": true
+        "separate-outputs": true,
+        "tooltip": false
     },
     "keyboard-state": {
         "numlock": true,
@@ -58,9 +59,9 @@
             "unlocked": ""
         }
     },
-    "hyprland/submap": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
+    //"hyprland/submap": {
+    //    "format": "<span style=\"italic\">{}</span>"
+    //},
     "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
